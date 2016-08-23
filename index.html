@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <title>SF | Message Box</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Brad Runnels">
+    
+    <link rel="shortcut icon" href="./favicon.ico"> 
+</head>
+<body>
+
+    <!-- box customization -->
+    <h2>Customize Your Message Box</h2>
+    <p>Seditium assimint ra nes dest quis rerepelis sit earum re nimus dent. Busam et autas vendis ratest, id magnate cearum denditasit di nam eos ent, quossint eliquasim fuga. Genduci llorem.</p>
+
+    <!-- customization step indicator -->
+    <ul>
+        <li>1 Select Box Type</li>
+        <li>2 Customize Top</li>
+        <li>3 Customize Front</li>
+        <li>4 Customize Lid</li>
+        <li>5 Customize Gift</li>
+    </ul>
+
+
+    <form>
+        <!--=====[  STEP 1 - Select Box Type  ]=====-->
+        <fieldset id="step-1">
+            <img id="step-1__image">
+            
+            <label for="box-type">Box Type:</label>
+            <select name="box-type" id="step-1__select">
+                <option value="ammo">Ammo Box</option>
+                <option value="artillery">Artillery Box</option>
+                <option value="traditional">Traditional Box</option>
+                <option value="letter">Letter Box</option>
+            </select>
+            
+            <h3>Price: $<span id="box__price"></span></h3>
+            
+            <p id="box__desc"></p>            
+        </fieldset>
+
+
+        <!--=====[  STEP 2 - Customize Top  ]=====-->
+        <fieldset id="step-2">
+            <img src="{{ 'box-top.jpg' | asset_url }}" alt="Customize the top of your message box">
+
+            <label for="box-top">Customize Top:</label>
+            <select name="box-top" id="step-2__select">
+                <option value="">Please make a selection</option>
+                <option value="no customization">No Customization</option>
+                <option value="custom text">Custom Text</option>
+                <option value="custom icon">Upload Icon</option>
+                <option value="quote 1">Quote 1</option>
+                <option value="quote 2">Quote 2</option>
+                <option value="quote 3">Quote 3</option>
+                <option value="quote 4">Quote 4</option>
+                <option value="verse 1">Bible Verse 1</option>
+                <option value="verse 2">Bible Verse 2</option>
+                <option value="verse 3">Bible Verse 3</option>
+                <option value="verse 4">Bible Verse 4</option>
+            </select>
+
+            <div class="typeface">
+                
+            </div>
+        </fieldset>
+
+
+        <!--=====[  STEP 3 - Customize Front  ]=====-->
+        <fieldset id="step-3">
+            <img src="{{ 'box-front.jpg' | asset_url }}" alt="Customize the front of your message box">
+
+            <label for="box-front">Customize Front:</label>
+            <select name="box-front" id="step-3__select">
+                <option value="">Please make a selection</option>
+                <option value="no customization">No Customization</option>
+                <option value="custom text">Custom Text</option>
+            </select>
+
+            <div class="typeface">
+                
+            </div>
+        </fieldset>
+        
+        
+        <!--=====[  STEP 4 - Customize Lid  ]=====-->
+        <fieldset id="step-4">
+            <img src="{{ 'box-lid.jpg' | asset_url }}" alt="Customize the lid of your message box">
+            
+            <label for="box-lid">Customize Inside Lid:</label>
+            <select name="box-lid" id="step-4__select">
+                <option value="">Please make a selection</option>
+                <option value="no customization">No Customization</option>
+                <option value="custom text">Custom Text</option>
+                <option value="custom icon">Upload Image</option>
+            </select>
+
+            <div class="typeface">
+                
+            </div>
+        </fieldset>
+
+
+        <!--=====[  STEP 5 - Customize Gift  ]=====-->
+        <fieldset id="step-5">
+            <img id="step-5__image">
+            
+
+            <div class="typeface">
+                
+            </div>
+        </fieldset>
+        
+
+        <button id="next" class="customization-button">Next</button>
+        <button id="previous" class="customization-button">Previous</button>
+    </form>
+    
+    
+
+
+    <!-- For file upload
+    <label class="input-label">Image File:</label>
+    <input type="file" id="imageLoader" name="imageLoader">
+    
+    <canvas id="imageCanvas"></canvas> -->
+
+    <script src="js/main.js"></script>
+</body>
+</html>
