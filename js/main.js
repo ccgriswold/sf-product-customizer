@@ -1,37 +1,38 @@
-/* jslint esnext: true, browser: true */
+/* jshint esnext: true, browser: true */
 
 // reference in shopify {{ 'filename.js' | asset_url | script_tag }}
 
-(function () {
+;(function () {
+
+/**
+ *  when customization process starts step 1 is shown all others are hidden
+ *  when next is clicked step 2 will be shown and all others are hidden
+ *  clicking next will increment a counter and previous will decrement
+ *  counter must not be less than 1 or greater than 5
+ *  must display step based on coutner
+ */
 
 
-// when customization process starts step 1 is shown all others are hidden
-// when next is clicked step 2 will be shown and all others are hidden
-// clicking next will increment a counter and previous will decrement
-// counter must not be less than 1 or greater than 5
-// must display step based on coutner
-
-
-const custProcCon = function () {
+const controller = function customizationProcess() {
 
     return {
-        next: function () { step = step === 5 ? step = 5 : step += 1; },
-        previous: function () { step = step === 1 ? step = 1 : step -= 1; },
-        getStep: () => step,
+        next() { step = step === 5 ? step = 5 : step += 1; },
+        previous() { step = step === 1 ? step = 1 : step -= 1; },
+        getStep() { return step; },
+        
+        setTypeface() { typefaceSet = true; },
+        isTypefaceSet() { return typefaceSet; }
     };
-}(step = 1);
+}(step = 1, typefaceSet = false);
 
 
-/*
- *  STEP 1: Select the type of box to be customized
-*/
-const step1 = function () {
+// STEP 1: Select the type of box to be customized
+const step1 = function selectBox() {
 
     const boxSelection = document.getElementById('step-1__select'),
           boxImg   = document.getElementById('step-1__image'),
           boxPrice = document.getElementById('box__price'),
           boxDesc  = document.getElementById('box__desc');
-
 
 
     const box = {
@@ -62,23 +63,29 @@ const step1 = function () {
     };
 
 
+    function boxDefault(boxType) {
 
-    // set default box type selection
-    const boxDefault = function (boxType) {
+        // TODO: should add default to select so that it references the same box type
+        // boxSelection.options[boxSelection[boxType]].selected = 'selected';
+
         boxImg.src = box[boxType].image;
         boxImg.alt = box[boxType].name;
         boxPrice.textContent = box[boxType].price;
         boxDesc.textContent = box[boxType].desc;
-    }('ammo');
+    }
 
+
+    // set default box type
+    boxDefault('ammo');
 
 
     boxSelection.onchange = function () {
 
         let boxOption = boxSelection.options[boxSelection.selectedIndex].value;
 
+        // if unrecognized box type, set default
         if (box[boxOption] === undefined) {
-            boxDefault('ammo'); // set default if unrecognized box type
+            boxDefault('ammo'); 
         } else {
             boxImg.src = box[boxOption].image;
             boxImg.alt = box[boxOption].name;
@@ -87,17 +94,45 @@ const step1 = function () {
         }
     };
 
-    // boxDefault should be a public accessible method
+    // boxDefault should be an accessible method
     return {
-        default: boxDefault(boxType)
+        boxDefault
     };
 }();
 
 
 
-const step2 = function () {
+// STEP 2: Customize the top of the message box
+const step2 = function customizeTop() {
 
-};
+    const topSelection = document.getElementById('step-2__select');
+
+    const options = {
+        none: 'no customization for step 2',
+        text: function () {
+            // show textarea for custom text
+        },
+        icon: function () {
+            // show icon upload button
+        },
+        quote_1: 'Quote 1 goes here',
+        quote_2: 'Quote 2 goes here',
+        quote_3: 'Quote 3 goes here',
+        quote_4: 'Quote 4 goes here',
+        verse_1: 'Verse 1 goes here',
+        verse_2: 'Verse 2 goes here',
+        verse_3: 'Verse 3 goes here',
+        verse_4: 'Verse 4 goes here'
+    };
+
+    topSelection.onchange = function () {
+
+        const topOption = topSelection.options[topSelection.selectedIndex].value;
+        
+        // code to execute when option is selected
+    };
+
+}();
 
 /*
     // image loading functionality
