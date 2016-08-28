@@ -12,6 +12,9 @@
  *  must display step based on coutner
  */
 
+    const form = document.getElementById('customization-form');
+    const nextBtn = document.getElementById('next');
+    const previousBtn = document.getElementById('previous');
 
 
     const controller = function customizationProcess() {
@@ -25,21 +28,34 @@
             getStep() { return step; },
             
             setTypeface() { typefaceSet = true; },
-            isTypefaceSet() { return typefaceSet; }
+            unsetTypeface() { typefaceSet = false; },
+            isTypefaceSet() { return typefaceSet; },
+
+            toggleOptions(optArr, opt) {
+
+                optArr.map((e) => {
+                    if (e.className.indexOf('hidden') === -1) {
+                        e.className += 'hidden';
+                    }
+                });
+
+                if (typeof opt !== 'undefined') {
+                    opt.className = opt.className.replace('hidden', '');
+                }
+            }
         };
     }();
 
 
     // STEP 1: Select the type of box to be customized
-    const step1 = function selectBox() {
+    const step1 =  {
 
-        const boxSelection = document.getElementById('step-1__select'),
-              boxImg   = document.getElementById('step-1__image'),
-              boxPrice = document.getElementById('box__price'),
-              boxDesc  = document.getElementById('box__desc');
+        boxSelection: document.getElementById('step-1__select'),
+        boxImg: document.getElementById('step-1__image'),
+        boxPrice: document.getElementById('step-1__price'),
+        boxDesc: document.getElementById('step-1__desc'),
 
-
-        const box = {
+        box: {
             ammo: {
                 name: 'Ammo Box',
                 image: "{{ 'ammo.jpg' | asset_url }}",
@@ -64,87 +80,135 @@
                 price: 95.99,
                 desc: 'Letter Box description goes here'
             },
-        };
+        },
 
+        displaySelectedBox(boxType) {
+            this.boxImg.src = this.box[boxType].image;
+            this.boxImg.alt = this.box[boxType].name;
+            this.boxPrice.textContent = this.box[boxType].price;
+            this.boxDesc.textContent = this.box[boxType].desc;
+        },
 
-        function displaySelectedBox(boxType) {
-            boxImg.src = box[boxType].image;
-            boxImg.alt = box[boxType].name;
-            boxPrice.textContent = box[boxType].price;
-            boxDesc.textContent = box[boxType].desc;
-        }
-
-
-        // set default box type
-        displaySelectedBox('ammo');
-
-
-        boxSelection.onchange = function () {
-
-            let boxOption = boxSelection.options[boxSelection.selectedIndex].value;
+        getSelectedBox() {
+            let boxOption = this.boxSelection.options[this.boxSelection.selectedIndex].value;
 
             // if unrecognized box type, set default
-            if (box[boxOption] === undefined) {
-                displaySelectedBox('ammo'); 
+            if (typeof this.box[boxOption] === 'undefined') {
+                this.displaySelectedBox('ammo');
+                this.boxSelection.value = 'ammo';
             } else {
-                displaySelectedBox(boxOption);
-            }
-        };
-
-        // displaySelectedBox should be an accessible method
-        return {
-            // displaySelectedBox()
-        };
-    }();
-
-
-
-    // STEP 2: Customize the top of the message box
-    const step2 = function customizeTop() {
-
-        const topSelection  = document.getElementById('step-2__select'),
-              topTypeface   = document.getElementById('step-2__typeface'),
-              topCustomText = document.getElementById('step-2__custom-text'),
-              topStockText  = document.getElementById('step-2__stock-text'),
-              topIcon       = document.getElementById('step-2__upload-icon');
-
-        const options = {
-            none: 'no customization for step 2',
-            text: function () {
-                topCustomText.classList.remove('hidden');
-            },
-            icon: function () {
-                // show icon upload button
-            },
-            quote_1: 'Quote 1 goes here',
-            quote_2: 'Quote 2 goes here',
-            quote_3: 'Quote 3 goes here',
-            quote_4: 'Quote 4 goes here',
-            verse_1: 'Verse 1 goes here',
-            verse_2: 'Verse 2 goes here',
-            verse_3: 'Verse 3 goes here',
-            verse_4: 'Verse 4 goes here'
-        };
-
-        function displayTopSelection(option) {
-            // if unrecognized option, reset select
-            if (options[option] === undefined) {
-                topSelection.value = '';
-                return undefined;
-            } else {
-
-            }
-
+                this.displaySelectedBox(boxOption);
+            }  
         }
 
-        topSelection.onchange = function () {
+    };
 
-            let topOption = topSelection.options[topSelection.selectedIndex].value;
-            
-            displayTopSelection(stopPropagation())
+    // set default box type for step 1
+    step1.displaySelectedBox('ammo');
+
+
+
+
+// if custom text is selected need to show custom textarea and hide all others
+// if stock text is selected need to show stock text p, populate it, and hide other options
+// if any text option is selected for the first time we need to show option to select typeface
+
+    
+    // STEP 2: Customize the top of the message box
+    const step2 =  function customizeTop() {
+
+        // private variables for step2 validation
+
+        return {
+
+            topSelection: document.getElementById('step-2__select'),
+            topTypeface: document.getElementById('step-2__typeface'),
+
+            options: function() {
+
+                const topCustomText = document.getElementById('step-2__custom-text');
+                const topStockText = document.getElementById('step-2__stock-text');
+                const topUploadIcon = document.getElementById('step-2__upload-icon');
+
+                const topOptions = [topCustomText, topStockText, topUploadIcon];
+
+                return {
+                    _() { controller.toggleOptions(topOptions); },
+                    none() { controller.toggleOptions(topOptions); },
+                    text() { controller.toggleOptions(topOptions, topCustomText); },
+                    icon() { controller.toggleOptions(topOptions, topUploadIcon); },
+                    stock() { controller.toggleOptions(topOptions, topStockText); },
+                    quote_1() { topStockText.textContent = 'Quote 1 goes here'; }, 
+                    quote_2() { topStockText.textContent = 'Quote 2 goes here'; },
+                    quote_3() { topStockText.textContent = 'Quote 3 goes here'; },
+                    quote_4() { topStockText.textContent = 'Quote 4 goes here'; },
+                    verse_1() { topStockText.textContent = 'Verse 1 goes here'; },
+                    verse_2() { topStockText.textContent = 'Verse 2 goes here'; },
+                    verse_3() { topStockText.textContent = 'Verse 3 goes here'; },
+                    verse_4() { topStockText.textContent = 'Verse 4 goes here'; }
+                };
+            }(),
+
+            getTopSelection() {
+
+                let topOption = this.topSelection.options[this.topSelection.selectedIndex].value;
+                
+                // if unrecognized option, reset select
+                if (typeof this.options[topOption] === 'undefined' || topOption === 'stock') {
+                    this.options._();
+                    this.topSelection.value = '_';
+                }
+                else if (topOption === 'text') {
+                    this.options.text();
+                    this.topTypeface.className = this.topTypeface.className.replace('hidden', '');
+                    controller.setTypeface();
+                    console.log('user has selected the custom text option');
+                }
+                else if (topOption.match(/quote_[0-9]+|verse_[0-9]+/)) {
+                    this.options.stock();
+                    this.options[topOption]();
+                }
+                else {
+                    this.options[topOption]();
+                }
+
+                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
+            }
         };
-
     }();
+
+
+    // STEP 3: Customize the front of the message box
+    const step3 = {
+
+        frontSelection: document.getElementById('step-3__select'),
+        frontTypeface: document.getElementById('step-3__typeface'),
+        frontCustomText: document.getElementById('step-3__custom-text'),
+
+        options: {
+            none: 'no customization for step 3',
+            text: function () {
+                // show custom text textarea
+            },
+        },
+
+    };
+
+
+
+
+    // select field listener for customization form
+    form.addEventListener('change', function (e) {
+
+        if (e.target === step1.boxSelection) {
+            step1.getSelectedBox();
+        } else if (e.target === step2.topSelection) {
+            step2.getTopSelection();
+        }
+
+        // e.stopPropagation();
+        
+    }, false);
 
 /*
     // image loading functionality
