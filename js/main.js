@@ -17,8 +17,9 @@
     const previousBtn = document.getElementById('previous');
 
 
-    const controller = function customizationProcess() {
 
+
+    const controller = function () {
         let step = 1;
         let typefaceSet = false;
 
@@ -32,7 +33,6 @@
             isTypefaceSet() { return typefaceSet; },
 
             toggleOptions(optArr, opt) {
-
                 optArr.map((e) => {
                     if (e.className.indexOf('hidden') === -1) {
                         e.className += 'hidden';
@@ -42,14 +42,25 @@
                 if (typeof opt !== 'undefined') {
                     opt.className = opt.className.replace('hidden', '');
                 }
+            },
+            toggleOptionOn(opt) {
+                if (opt.className.indexOf('hidden') > -1) {
+                    opt.className = opt.className.replace('hidden', '');
+                }
+            },
+            toggleOptionOff(opt) {
+                if (opt.className.indexOf('hidden') === -1) {
+                    opt.className += 'hidden';
+                }
             }
         };
     }();
 
 
-    // STEP 1: Select the type of box to be customized
-    const step1 =  {
 
+
+    // STEP 1: Select the type of box to be customized
+    const step1 = {
         boxSelection: document.getElementById('step-1__select'),
         boxImg: document.getElementById('step-1__image'),
         boxPrice: document.getElementById('step-1__price'),
@@ -100,7 +111,6 @@
                 this.displaySelectedBox(boxOption);
             }  
         }
-
     };
 
     // set default box type for step 1
@@ -109,23 +119,16 @@
 
 
 
-// if custom text is selected need to show custom textarea and hide all others
-// if stock text is selected need to show stock text p, populate it, and hide other options
-// if any text option is selected for the first time we need to show option to select typeface
-
-    
     // STEP 2: Customize the top of the message box
-    const step2 =  function customizeTop() {
+    const step2 =  function () {
 
-        // private variables for step2 validation
+        // private variables for step 2 validation
 
         return {
-
             topSelection: document.getElementById('step-2__select'),
-            topTypeface: document.getElementById('step-2__typeface'),
 
             options: function() {
-
+                const topTypeface = document.getElementById('step-2__typeface');
                 const topCustomText = document.getElementById('step-2__custom-text');
                 const topStockText = document.getElementById('step-2__stock-text');
                 const topUploadIcon = document.getElementById('step-2__upload-icon');
@@ -133,11 +136,26 @@
                 const topOptions = [topCustomText, topStockText, topUploadIcon];
 
                 return {
-                    _() { controller.toggleOptions(topOptions); },
-                    none() { controller.toggleOptions(topOptions); },
-                    text() { controller.toggleOptions(topOptions, topCustomText); },
-                    icon() { controller.toggleOptions(topOptions, topUploadIcon); },
-                    stock() { controller.toggleOptions(topOptions, topStockText); },
+                    none() { 
+                        controller.toggleOptions(topOptions);
+                        controller.toggleOptionOff(topTypeface);
+                        controller.unsetTypeface();
+                    },
+                    text() {
+                        controller.toggleOptions(topOptions, topCustomText);
+                        controller.toggleOptionOn(topTypeface);
+                        controller.setTypeface();
+                    },
+                    icon() {
+                        controller.toggleOptions(topOptions, topUploadIcon);
+                        controller.toggleOptionOff(topTypeface);
+                        controller.unsetTypeface();
+                    },
+                    stock() {
+                        controller.toggleOptions(topOptions, topStockText);
+                        controller.toggleOptionOn(topTypeface);
+                        controller.setTypeface();
+                    },
                     quote_1() { topStockText.textContent = 'Quote 1 goes here'; }, 
                     quote_2() { topStockText.textContent = 'Quote 2 goes here'; },
                     quote_3() { topStockText.textContent = 'Quote 3 goes here'; },
@@ -150,19 +168,11 @@
             }(),
 
             getTopSelection() {
-
                 let topOption = this.topSelection.options[this.topSelection.selectedIndex].value;
                 
-                // if unrecognized option, reset select
-                if (typeof this.options[topOption] === 'undefined' || topOption === 'stock') {
-                    this.options._();
+                if (typeof this.options[topOption] === 'undefined' || topOption === 'stock' || topOption === '_') {
+                    this.options.none();
                     this.topSelection.value = '_';
-                }
-                else if (topOption === 'text') {
-                    this.options.text();
-                    this.topTypeface.className = this.topTypeface.className.replace('hidden', '');
-                    controller.setTypeface();
-                    console.log('user has selected the custom text option');
                 }
                 else if (topOption.match(/quote_[0-9]+|verse_[0-9]+/)) {
                     this.options.stock();
@@ -178,36 +188,89 @@
     }();
 
 
+
+
     // STEP 3: Customize the front of the message box
-    const step3 = {
+    const step3 = function customizeFront() {
+        
+        // private variables for step 3 validation
+        let typefaceStep3 = false;
 
-        frontSelection: document.getElementById('step-3__select'),
-        frontTypeface: document.getElementById('step-3__typeface'),
-        frontCustomText: document.getElementById('step-3__custom-text'),
+        return {
+            frontSelection: document.getElementById('step-3__select'),
+            
+            options: function (){
+                const frontTypeface = document.getElementById('step-3__typeface');
+                const frontCustomText = document.getElementById('step-3__custom-text');
 
-        options: {
-            none: 'no customization for step 3',
-            text: function () {
-                // show custom text textarea
+                return {
+                    none() { 
+                        controller.toggleOptionOff(frontCustomText);
+                        controller.toggleOptionOff(frontTypeface);
+                        
+                        if (step3.isTypefaceSet()) {
+                            controller.unsetTypeface();
+                            step3.unsetTypeface();
+                        }
+                    },
+                    text() {
+                        if (!controller.isTypefaceSet()) {
+                            controller.toggleOptionOn(frontTypeface);
+                            controller.setTypeface();
+                            step3.setTypeface();
+                        }
+
+                        controller.toggleOptionOn(frontCustomText);
+                        console.log('Did Step 3 set typeface? ' + step3.isTypefaceSet());
+                    }
+                };
+            }(),
+
+            getFrontSelection() {
+                let frontOption = this.frontSelection.options[this.frontSelection.selectedIndex].value;
+
+                if (typeof this.options[frontOption] === 'undefined' || frontOption === '_') {
+                    this.options.none();
+                    frontOption.value = '_';
+                }
+                else {
+                    this.options[frontOption]();
+                }
+
+                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
             },
-        },
 
-    };
+            setTypeface() {
+                typefaceStep3 = true;
+            },
+
+            unsetTypeface() {
+                typefaceStep3 = false;
+            },
+
+            isTypefaceSet() {
+                return typefaceStep3;
+            }
+        };
+
+    }();
 
 
 
 
     // select field listener for customization form
     form.addEventListener('change', function (e) {
-
         if (e.target === step1.boxSelection) {
             step1.getSelectedBox();
-        } else if (e.target === step2.topSelection) {
+        }
+        else if (e.target === step2.topSelection) {
             step2.getTopSelection();
         }
+        else if (e.target === step3.frontSelection) {
+            step3.getFrontSelection();
+        }
 
-        // e.stopPropagation();
-        
+        // e.stopPropagation();  
     }, false);
 
 /*
