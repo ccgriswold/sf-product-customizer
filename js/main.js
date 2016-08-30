@@ -5,28 +5,69 @@
 ;(function () {
 
 /**
- *  when customization process starts step 1 is shown all others are hidden
- *  when next is clicked step 2 will be shown and all others are hidden
- *  clicking next will increment a counter and previous will decrement
- *  counter must not be less than 1 or greater than 5
- *  must display step based on coutner
+ *  NEEDS:
+ *  - validate each step so that user cannot progress until selection has been made
+ *  - maybe clear unused form elements before submission
+ *  - incorporate final assets (obvious)
+ *  - incorporate into Shopify (obvious)
+ *  - add image upload funcitonality w/cropping
+ *  - pass selected text as a formatted image
  */
-
-    const form = document.getElementById('customization-form');
-    const nextBtn = document.getElementById('next');
-    const previousBtn = document.getElementById('previous');
-
-
-
 
     const controller = function () {
         let step = 1;
         let typefaceSet = false;
 
+        const step1 = document.getElementById('step-1');
+        const step2 = document.getElementById('step-2');
+        const step3 = document.getElementById('step-3');
+        const step4 = document.getElementById('step-4');
+        const step5 = document.getElementById('step-5');
+
+        const steps = [ step1, step2, step3, step4, step5 ];
+
+        const indicator1 = document.getElementById('progress-indicator__step-1');
+        const indicator2 = document.getElementById('progress-indicator__step-2');
+        const indicator3 = document.getElementById('progress-indicator__step-3');
+        const indicator4 = document.getElementById('progress-indicator__step-4');
+        const indicator5 = document.getElementById('progress-indicator__step-5');
+
+        const indicators = [ indicator1, indicator2, indicator3, indicator4, indicator5 ];
+
         return {
-            next() { step = step === 5 ? step = 5 : step += 1; },
-            previous() { step = step === 1 ? step = 1 : step -= 1; },
+            nextBtn: document.getElementById('next'),
+            previousBtn: document.getElementById('previous'),
+            addToCartBtn: document.getElementById('add-cart'),
+
+            nextStep() { step = step === 5 ? step = 5 : step += 1; },
+            previousStep() { step = step === 1 ? step = 1 : step -= 1; },
             getStep() { return step; },
+
+            progressUI() {
+                let state = this.getStep();
+                
+                if (state === 1) {
+                    this.toggleOptions(steps, step1);
+                    this.toggleIndicator(indicators, indicator1);
+                }
+                else if (state === 2) {
+                    this.toggleOptions(steps, step2);
+                    this.toggleIndicator(indicators, indicator2);
+                }
+                else if (state === 3) {
+                    this.toggleOptions(steps, step3);
+                    this.toggleIndicator(indicators, indicator3);
+                }
+                else if (state === 4) {
+                    this.toggleOptions(steps, step4);
+                    this.toggleIndicator(indicators, indicator4);
+                }
+                else if (state === 5) {
+                    this.toggleOptions(steps, step5);
+                    this.toggleIndicator(indicators, indicator5);
+                }
+
+            },
             
             setTypeface() { typefaceSet = true; },
             unsetTypeface() { typefaceSet = false; },
@@ -52,6 +93,15 @@
                 if (opt.className.indexOf('hidden') === -1) {
                     opt.className += 'hidden';
                 }
+            },
+            toggleIndicator(indArr, ind) {
+                indArr.map((e) => {
+                    if (e.className.indexOf(' progress-indicator__step--highlight') > -1) {
+                        e.className = e.className.replace(' progress-indicator__step--highlight', '');
+                    }
+                });
+
+                ind.className += ' progress-indicator__step--highlight';
             }
         };
     }();
@@ -120,9 +170,10 @@
 
 
     // STEP 2: Customize the top of the message box
-    const step2 =  function () {
+    const step2 = function () {
 
         // private variables for step 2 validation
+        let typefaceStep2 = false;
 
         return {
             topSelection: document.getElementById('step-2__select'),
@@ -133,28 +184,44 @@
                 const topStockText = document.getElementById('step-2__stock-text');
                 const topUploadIcon = document.getElementById('step-2__upload-icon');
 
-                const topOptions = [topCustomText, topStockText, topUploadIcon];
+                const topOptions = [ topCustomText, topStockText, topUploadIcon ];
 
                 return {
                     none() { 
                         controller.toggleOptions(topOptions);
                         controller.toggleOptionOff(topTypeface);
-                        controller.unsetTypeface();
+
+                        if (step2.isTypefaceSet()) {
+                            controller.unsetTypeface();
+                            step2.unsetTypeface();
+                        }
                     },
                     text() {
                         controller.toggleOptions(topOptions, topCustomText);
-                        controller.toggleOptionOn(topTypeface);
-                        controller.setTypeface();
+                        
+                        if (!controller.isTypefaceSet()) {
+                            controller.toggleOptionOn(topTypeface);
+                            controller.setTypeface();
+                            step2.setTypeface();
+                        }
                     },
                     icon() {
                         controller.toggleOptions(topOptions, topUploadIcon);
                         controller.toggleOptionOff(topTypeface);
-                        controller.unsetTypeface();
+                        
+                        if (step2.isTypefaceSet()) {
+                            controller.unsetTypeface();
+                            step2.unsetTypeface();
+                        }
                     },
                     stock() {
                         controller.toggleOptions(topOptions, topStockText);
-                        controller.toggleOptionOn(topTypeface);
-                        controller.setTypeface();
+
+                        if (!controller.isTypefaceSet()) {
+                            controller.toggleOptionOn(topTypeface);
+                            controller.setTypeface();
+                            step2.setTypeface();
+                        }
                     },
                     quote_1() { topStockText.textContent = 'Quote 1 goes here'; }, 
                     quote_2() { topStockText.textContent = 'Quote 2 goes here'; },
@@ -183,6 +250,18 @@
                 }
 
                 console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
+            },
+
+            setTypeface() {
+                typefaceStep2 = true;
+            },
+
+            unsetTypeface() {
+                typefaceStep2 = false;
+            },
+
+            isTypefaceSet() {
+                return typefaceStep2;
             }
         };
     }();
@@ -191,7 +270,7 @@
 
 
     // STEP 3: Customize the front of the message box
-    const step3 = function customizeFront() {
+    const step3 = function () {
         
         // private variables for step 3 validation
         let typefaceStep3 = false;
@@ -258,7 +337,145 @@
 
 
 
-    // select field listener for customization form
+    // STEP 4: Customize the lid of the message box
+    const step4 = function () {
+        
+        // private variables for step 4 validation
+        let typefaceStep4 = false;
+
+        return {
+            lidSelection: document.getElementById('step-4__select'),
+            
+            options: function (){
+                const lidTypeface = document.getElementById('step-4__typeface');
+                const lidCustomText = document.getElementById('step-4__custom-text');
+
+                return {
+                    none() { 
+                        controller.toggleOptionOff(lidCustomText);
+                        controller.toggleOptionOff(lidTypeface);
+                        
+                        if (step4.isTypefaceSet()) {
+                            controller.unsetTypeface();
+                            step4.unsetTypeface();
+                        }
+                    },
+                    text() {
+                        if (!controller.isTypefaceSet()) {
+                            controller.toggleOptionOn(lidTypeface);
+                            controller.setTypeface();
+                            step4.setTypeface();
+                        }
+
+                        controller.toggleOptionOn(lidCustomText);
+                        console.log('Did Step 4 set typeface? ' + step4.isTypefaceSet());
+                    }
+                };
+            }(),
+
+            getLidSelection() {
+                let lidOption = this.lidSelection.options[this.lidSelection.selectedIndex].value;
+
+                if (typeof this.options[lidOption] === 'undefined' || lidOption === '_') {
+                    this.options.none();
+                    lidOption.value = '_';
+                }
+                else {
+                    this.options[lidOption]();
+                }
+
+                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
+            },
+
+            setTypeface() {
+                typefaceStep4 = true;
+            },
+
+            unsetTypeface() {
+                typefaceStep4 = false;
+            },
+
+            isTypefaceSet() {
+                return typefaceStep4;
+            }
+        };
+
+    }();
+
+
+
+
+    // STEP 5: Customize gift to go inside the message box
+    const step5 = function () {
+        
+        // private variables for step 5 validation
+        let typefaceStep5 = false;
+
+        return {
+            giftSelection: document.getElementById('step-5__select'),
+            
+            options: function (){
+                const giftTypeface = document.getElementById('step-5__typeface');
+                const giftCustomText = document.getElementById('step-5__custom-text');
+
+                return {
+                    none() { 
+                        controller.toggleOptionOff(giftCustomText);
+                        controller.toggleOptionOff(giftTypeface);
+                        
+                        if (step5.isTypefaceSet()) {
+                            controller.unsetTypeface();
+                            step5.unsetTypeface();
+                        }
+                    },
+                    text() {
+                        if (!controller.isTypefaceSet()) {
+                            controller.toggleOptionOn(giftTypeface);
+                            controller.setTypeface();
+                            step5.setTypeface();
+                        }
+
+                        controller.toggleOptionOn(giftCustomText);
+                        console.log('Did Step 5 set typeface? ' + step5.isTypefaceSet());
+                    }
+                };
+            }(),
+
+            getGiftSelection() {
+                let giftOption = this.giftSelection.options[this.giftSelection.selectedIndex].value;
+
+                if (typeof this.options[giftOption] === 'undefined' || giftOption === '_') {
+                    this.options.none();
+                    giftOption.value = '_';
+                }
+                else {
+                    this.options[giftOption]();
+                }
+
+                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
+            },
+
+            setTypeface() {
+                typefaceStep5 = true;
+            },
+
+            unsetTypeface() {
+                typefaceStep5 = false;
+            },
+
+            isTypefaceSet() {
+                return typefaceStep5;
+            }
+        };
+
+    }();
+
+
+
+
+    const form = document.getElementById('customization-form');
+
+    // customization form listener for select fields
     form.addEventListener('change', function (e) {
         if (e.target === step1.boxSelection) {
             step1.getSelectedBox();
@@ -269,9 +486,40 @@
         else if (e.target === step3.frontSelection) {
             step3.getFrontSelection();
         }
+        else if (e.target === step4.lidSelection) {
+            step4.getLidSelection();
+        }
+        // else if (e.target === step5.giftSelection) {
+        //     step5.getGiftSelection();
+        // }
 
-        // e.stopPropagation();  
+        e.stopPropagation();  
     }, false);
+
+
+
+
+    const formButtons = document.getElementById('form-buttons');
+
+    // customization form listener for select fields
+    formButtons.addEventListener('click', function (e) {
+        if (e.target === controller.nextBtn) {
+            controller.nextStep();
+            controller.progressUI();
+        }
+        else if (e.target === controller.previousBtn) {
+            controller.previousStep();
+            controller.progressUI();
+        }
+
+        e.stopPropagation();
+    }, false);
+
+
+    // grab z radio buttons
+    const radios = document.getElementsByName('typeface');
+
+    // let value = radios.map((e) => e.checked || e); itertate with a for loop
 
 /*
     // image loading functionality
