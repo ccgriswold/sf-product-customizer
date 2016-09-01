@@ -5,23 +5,23 @@
 ;(function () {
 
 /**
- *  NEEDS:
- *  - validate each step so that user cannot progress until selection has been made
- *  - maybe clear unused form elements before submission
- *  - add image upload functionality w/cropping <== use croppie
- *  - pass selected text as a formatted image and display final product to user for proofing purposes
- *  - gift options for step 5
- *  - stock icon options only - no user uploaded icons
- *  - stock quotes provided step 4
- *  - need to identify persons that have funded on Kickstarter to give discount when they custom box
- *  - live hooks into Shopify for Kickstarter
- 
- *  - way to handle 50 state outline stock option
- */
+    *** NEEDS: ***
+    - validate each step so that user cannot progress until selection has been made
+    - maybe clear unused form elements before submission
+    - add image upload functionality w/cropping <== use croppie
+    - pass selected text as a formatted image and display final product to user for proofing purposes
+    - gift options for step 5
+    - stock icon options only - no user uploaded icons
+    - stock quotes provided step 4
+    - need to identify persons that have funded on Kickstarter to give discount when they custom box
+    - live hooks into Shopify for Kickstarter
+    - way to handle 50 state outline stock option
+***/
 
 
     // STEP 1: Select the type of box to be customized
     const step1 = {
+
         boxSelection: document.getElementById('step-1__select'),
         boxImg: document.getElementById('step-1__image'),
         boxPrice: document.getElementById('step-1__price'),
@@ -72,6 +72,7 @@
                 this.displaySelectedBox(boxOption);
             }  
         }
+        
     };
 
     // set default box type for step 1
@@ -384,7 +385,7 @@
 
 
 
-    const controller = function (stp2, stp3, stp4, stp5) {
+    const controller = function () {
         let step = 1;
         let typefaceSet = false;
 
@@ -447,6 +448,7 @@
 
             },
             
+            
             setTypeface() { typefaceSet = true; },
             unsetTypeface() { typefaceSet = false; },
             isTypefaceSet() { return typefaceSet; },
@@ -481,24 +483,23 @@
 
                 ind.className += ' progress-indicator__step--highlight';
             },
-
-            validateStep(select) {
-                if (select.value === '_') {
-                    this.error.textContent = 'Error: Please make a selection.';
-                    return false;
-                }
-                // else if (select.value === 'text' && textOption === '') {
-                //     this.error.textContent = 'Error: Please enter your custom text.';
-                //     return false;
-                // }
-                else {
-                    return true;
-                }
-            }
         };
-    }(step2, step3, step4, step5);
+    }();
 
 
+    function validateStep(select) {
+        if (select.value === '_') {
+            this.error.textContent = 'Error: Please make a selection.';
+            return false;
+        }
+        // else if (select.value === 'text' && textOption === '') {
+        //     this.error.textContent = 'Error: Please enter your custom text.';
+        //     return false;
+        // }
+        else {
+            return true;
+        }
+    }
 
 
     const form = document.getElementById('customization-form');
