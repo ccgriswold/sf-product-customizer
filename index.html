@@ -20,19 +20,33 @@
     <p>Seditium assimint ra nes dest quis rerepelis sit earum re nimus dent. Busam et autas vendis ratest, id magnate cearum denditasit di nam eos ent, quossint eliquasim fuga. Genduci llorem.</p>
 
     <!-- customization step indicator -->
-    <ul>
-        <li>1 Select Box Type</li>
-        <li>2 Customize Top</li>
-        <li>3 Customize Front</li>
-        <li>4 Customize Lid</li>
-        <li>5 Customize Gift</li>
+    <ul id="progress-indicator">
+        <li id="progress-indicator__step-1" class="progress-indicator__step progress-indicator__step--highlight">1 Select Box Type</li>
+        <li id="progress-indicator__step-2" class="progress-indicator__step">2 Customize Top</li>
+        <li id="progress-indicator__step-3" class="progress-indicator__step">3 Customize Front</li>
+        <li id="progress-indicator__step-4" class="progress-indicator__step">4 Customize Lid</li>
+        <li id="progress-indicator__step-5" class="progress-indicator__step">5 Customize Gift</li>
     </ul>
 
 
     <form id="customization-form" name="customizationForm">
 
+        <!-- <fieldset id="typeface" class="hidden">
+            <legend>Choose Typeface:</legend>
+
+            <input type="radio" name="typeface" id="r1" value="garamond">
+            <label for="r1"> Garamond</label>
+
+            <input type="radio" name="typeface" id="r2" value="corsiva">
+            <label for="r2"> Monotype Corsiva</label>
+
+            <small>NOTE: Selected typeface will be used for all text customization.</small>
+        </fieldset> -->
+
+        <p id="selection-error"></p>
+
         <!--=====[  STEP 1 - Select Box Type  ]=====-->
-        <fieldset id="step-1">
+        <fieldset id="step-1" class="">
             <img id="step-1__image">
             
             <label for="step-1__select">Box Type:</label>
@@ -50,7 +64,7 @@
 
 
         <!--=====[  STEP 2 - Customize Top  ]=====-->
-        <fieldset id="step-2">
+        <fieldset id="step-2" class="hidden">
             <img src="{{ 'box-top.jpg' | asset_url }}" alt="Customize the top of your message box">
 
             <label for="step-2__select">Customize Top:</label>
@@ -96,7 +110,7 @@
 
 
         <!--=====[  STEP 3 - Customize Front  ]=====-->
-        <fieldset id="step-3">
+        <fieldset id="step-3" class="hidden">
             <img src="{{ 'box-front.jpg' | asset_url }}" alt="Customize the front of your message box">
 
             <label for="step-3__select">Customize Front:</label>
@@ -127,7 +141,7 @@
         
         
         <!--=====[  STEP 4 - Customize Lid  ]=====-->
-        <fieldset id="step-4">
+        <fieldset id="step-4" class="hidden">
             <img src="{{ 'box-lid.jpg' | asset_url }}" alt="Customize the lid of your message box">
             
             <label for="step-4__select">Customize Lid:</label>
@@ -163,7 +177,7 @@
 
 
         <!--=====[  STEP 5 - Customize Gift  ]=====-->
-        <fieldset id="step-5">
+        <fieldset id="step-5" class="hidden">
             <img id="step-5__image">
 
             <label for="step-5__select">Gift:</label>
@@ -171,10 +185,12 @@
                 <option value="_">Please make a selection</option>
                 <option value="none">No Gift</option>
                 <option value="text">Leather Coaster</option>
-                <option value="icon">Upload Icon</option>
-                <option value="image">Upload Image</option>
+                <option value="icon">Jack Daniel's&trade; Fudge</option>
+                <option value="image">Handcrafted Chocolates</option>
             </select>
             
+
+            <!-- all this below is for leather coaster option -->
             <fieldset id="step-5__typeface" class="hidden">
                 <legend>Choose Typeface:</legend>
 
@@ -207,9 +223,12 @@
 
     </form>
 
-    <button id="previous" class="customization-button">Previous</button>
-    <button id="next" class="customization-button">Next</button>
-    <button>Add to Cart</button>
+    <div id="form-buttons">
+        <button id="previous" class="hidden">Previous</button>
+        <button id="next" class="">Next</button>
+        <button id="add-cart" class="hidden">Add to Cart</button>
+    </div>
+    
     
     
 

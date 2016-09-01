@@ -1,0 +1,32 @@
+{
+  "name": "product-customizer",
+  "version": "0.0.1",
+  "description": "product customization module for SF Shopify site",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheatbrad/sf-product-customizer.git"
+  },
+  "keywords": [
+    "product customization"
+  ],
+  "author": "Brad Runnels",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wheatbrad/sf-product-customizer/issues"
+  },
+  "homepage": "https://github.com/wheatbrad/sf-product-customizer#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-browser": "^3.0.2",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.1"
+  }
+}
