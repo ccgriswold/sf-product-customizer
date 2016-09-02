@@ -25,7 +25,7 @@ gulp.task('sass', function () {
 gulp.task('js', function (e) {
     pump([
         gulp.src('./js/main.js'),
-        // gulpBrowser.browserify(),
+        gulpBrowser.browserify(),
         babel({ presets: ['es2015'] }),
         uglify(),
         gulp.dest('../public/js/')

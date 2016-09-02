@@ -2,8 +2,6 @@
 
 // reference in shopify {{ 'filename.js' | asset_url | script_tag }}
 
-;(function () {
-
 /**
     *** NEEDS: ***
     - validate each step so that user cannot progress until selection has been made
@@ -19,370 +17,14 @@
 ***/
 
 
-    // STEP 1: Select the type of box to be customized
-    const step1 = {
-
-        boxSelection: document.getElementById('step-1__select'),
-        boxImg: document.getElementById('step-1__image'),
-        boxPrice: document.getElementById('step-1__price'),
-        boxDesc: document.getElementById('step-1__desc'),
-
-        box: {
-            ammo: {
-                name: 'Ammo Box',
-                image: "{{ 'ammo.jpg' | asset_url }}",
-                price: 109.99,
-                desc: 'Ammo Box description goes here'
-            },
-            artillery: {
-                name: 'Artillery Box',
-                image: "{{ 'artillery.jpg' | asset_url }}",
-                price: 119.99,
-                desc: 'Artillery Box description goes here'
-            },
-            traditional: {
-                name: 'Traditional Box',
-                image: "{{ 'traditional.jpg' | asset_url }}",
-                price: 115.99,
-                desc: 'Traditional Box description goes here'
-            },
-            letter: {
-                name: 'Letter Box',
-                image: "{{ 'letter.jpg' | asset_url }}",
-                price: 95.99,
-                desc: 'Letter Box description goes here'
-            },
-        },
-
-        displaySelectedBox(boxType) {
-            this.boxImg.src = this.box[boxType].image;
-            this.boxImg.alt = this.box[boxType].name;
-            this.boxPrice.textContent = this.box[boxType].price;
-            this.boxDesc.textContent = this.box[boxType].desc;
-        },
-
-        getSelectedBox() {
-            let boxOption = this.boxSelection.options[this.boxSelection.selectedIndex].value;
-
-            // if unrecognized box type, set default
-            if (typeof this.box[boxOption] === 'undefined') {
-                this.displaySelectedBox('ammo');
-                this.boxSelection.value = 'ammo';
-            } else {
-                this.displaySelectedBox(boxOption);
-            }  
-        }
-        
-    };
+    const step1 = require('./step1');
+    const step2 = require('./step2');
+    const step3 = require('./step3');
+    const step4 = require('./step4');
+    const step5 = require('./step5');
 
     // set default box type for step 1
     step1.displaySelectedBox('ammo');
-
-
-
-
-    // STEP 2: Customize the top of the message box
-    const step2 = function () {
-
-        // private variables for step 2 validation
-        let typefaceStep2 = false;
-
-        return {
-            topSelection: document.getElementById('step-2__select'),
-
-            options: function() {
-                const topTypeface = document.getElementById('step-2__typeface');
-                const topCustomText = document.getElementById('step-2__custom-text');
-                const topStockText = document.getElementById('step-2__stock-text');
-                const topUploadIcon = document.getElementById('step-2__upload-icon');
-
-                const topOptions = [ topCustomText, topStockText, topUploadIcon ];
-
-                return {
-                    none() { 
-                        controller.toggleOptions(topOptions);
-                        controller.toggleOptionOff(topTypeface);
-
-                        if (step2.isTypefaceSet()) {
-                            controller.unsetTypeface();
-                            step2.unsetTypeface();
-                        }
-                    },
-                    text() {
-                        controller.toggleOptions(topOptions, topCustomText);
-                        
-                        if (!controller.isTypefaceSet()) {
-                            controller.toggleOptionOn(topTypeface);
-                            controller.setTypeface();
-                            step2.setTypeface();
-                        }
-                    },
-                    icon() {
-                        controller.toggleOptions(topOptions, topUploadIcon);
-                        controller.toggleOptionOff(topTypeface);
-                        
-                        if (step2.isTypefaceSet()) {
-                            controller.unsetTypeface();
-                            step2.unsetTypeface();
-                        }
-                    },
-                    stock() {
-                        controller.toggleOptions(topOptions, topStockText);
-
-                        if (!controller.isTypefaceSet()) {
-                            controller.toggleOptionOn(topTypeface);
-                            controller.setTypeface();
-                            step2.setTypeface();
-                        }
-                    },
-                    quote_1() { topStockText.textContent = 'Quote 1 goes here'; }, 
-                    quote_2() { topStockText.textContent = 'Quote 2 goes here'; },
-                    quote_3() { topStockText.textContent = 'Quote 3 goes here'; },
-                    quote_4() { topStockText.textContent = 'Quote 4 goes here'; },
-                    verse_1() { topStockText.textContent = 'Verse 1 goes here'; },
-                    verse_2() { topStockText.textContent = 'Verse 2 goes here'; },
-                    verse_3() { topStockText.textContent = 'Verse 3 goes here'; },
-                    verse_4() { topStockText.textContent = 'Verse 4 goes here'; }
-                };
-            }(),
-
-            getTopSelection() {
-                let topOption = this.topSelection.options[this.topSelection.selectedIndex].value;
-                
-                if (typeof this.options[topOption] === 'undefined' || topOption === 'stock' || topOption === '_') {
-                    this.options.none();
-                    this.topSelection.value = '_';
-                }
-                else if (topOption.match(/quote_[0-9]+|verse_[0-9]+/)) {
-                    this.options.stock();
-                    this.options[topOption]();
-                }
-                else {
-                    this.options[topOption]();
-                }
-
-                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
-            },
-
-            setTypeface() {
-                typefaceStep2 = true;
-            },
-
-            unsetTypeface() {
-                typefaceStep2 = false;
-            },
-
-            isTypefaceSet() {
-                return typefaceStep2;
-            },
-        };
-    }();
-
-
-
-
-    // STEP 3: Customize the front of the message box
-    const step3 = function () {
-        
-        // private variables for step 3 validation
-        let typefaceStep3 = false;
-
-        return {
-            frontSelection: document.getElementById('step-3__select'),
-            
-            options: function (){
-                const frontTypeface = document.getElementById('step-3__typeface');
-                const frontCustomText = document.getElementById('step-3__custom-text');
-
-                return {
-                    none() { 
-                        controller.toggleOptionOff(frontCustomText);
-                        controller.toggleOptionOff(frontTypeface);
-                        
-                        if (step3.isTypefaceSet()) {
-                            controller.unsetTypeface();
-                            step3.unsetTypeface();
-                        }
-                    },
-                    text() {
-                        if (!controller.isTypefaceSet()) {
-                            controller.toggleOptionOn(frontTypeface);
-                            controller.setTypeface();
-                            step3.setTypeface();
-                        }
-
-                        controller.toggleOptionOn(frontCustomText);
-                        console.log('Did Step 3 set typeface? ' + step3.isTypefaceSet());
-                    }
-                };
-            }(),
-
-            getFrontSelection() {
-                let frontOption = this.frontSelection.options[this.frontSelection.selectedIndex].value;
-
-                if (typeof this.options[frontOption] === 'undefined' || frontOption === '_') {
-                    this.options.none();
-                    frontOption.value = '_';
-                }
-                else {
-                    this.options[frontOption]();
-                }
-
-                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
-            },
-
-            setTypeface() {
-                typefaceStep3 = true;
-            },
-
-            unsetTypeface() {
-                typefaceStep3 = false;
-            },
-
-            isTypefaceSet() {
-                return typefaceStep3;
-            }
-        };
-
-    }();
-
-
-
-
-    // STEP 4: Customize the lid of the message box
-    const step4 = function () {
-        
-        // private variables for step 4 validation
-        let typefaceStep4 = false;
-
-        return {
-            lidSelection: document.getElementById('step-4__select'),
-            
-            options: function (){
-                const lidTypeface = document.getElementById('step-4__typeface');
-                const lidCustomText = document.getElementById('step-4__custom-text');
-
-                return {
-                    none() { 
-                        controller.toggleOptionOff(lidCustomText);
-                        controller.toggleOptionOff(lidTypeface);
-                        
-                        if (step4.isTypefaceSet()) {
-                            controller.unsetTypeface();
-                            step4.unsetTypeface();
-                        }
-                    },
-                    text() {
-                        if (!controller.isTypefaceSet()) {
-                            controller.toggleOptionOn(lidTypeface);
-                            controller.setTypeface();
-                            step4.setTypeface();
-                        }
-
-                        controller.toggleOptionOn(lidCustomText);
-                        console.log('Did Step 4 set typeface? ' + step4.isTypefaceSet());
-                    }
-                };
-            }(),
-
-            getLidSelection() {
-                let lidOption = this.lidSelection.options[this.lidSelection.selectedIndex].value;
-
-                if (typeof this.options[lidOption] === 'undefined' || lidOption === '_') {
-                    this.options.none();
-                    lidOption.value = '_';
-                }
-                else {
-                    this.options[lidOption]();
-                }
-
-                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
-            },
-
-            setTypeface() {
-                typefaceStep4 = true;
-            },
-
-            unsetTypeface() {
-                typefaceStep4 = false;
-            },
-
-            isTypefaceSet() {
-                return typefaceStep4;
-            }
-        };
-
-    }();
-
-
-
-
-    // STEP 5: Customize gift to go inside the message box
-    const step5 = function () {
-        
-        // private variables for step 5 validation
-        let typefaceStep5 = false;
-
-        return {
-            giftSelection: document.getElementById('step-5__select'),
-            
-            options: function (){
-                const giftTypeface = document.getElementById('step-5__typeface');
-                const giftCustomText = document.getElementById('step-5__custom-text');
-
-                return {
-                    none() { 
-                        controller.toggleOptionOff(giftCustomText);
-                        controller.toggleOptionOff(giftTypeface);
-                        
-                        if (step5.isTypefaceSet()) {
-                            controller.unsetTypeface();
-                            step5.unsetTypeface();
-                        }
-                    },
-                    text() {
-                        if (!controller.isTypefaceSet()) {
-                            controller.toggleOptionOn(giftTypeface);
-                            controller.setTypeface();
-                            step5.setTypeface();
-                        }
-
-                        controller.toggleOptionOn(giftCustomText);
-                        console.log('Did Step 5 set typeface? ' + step5.isTypefaceSet());
-                    }
-                };
-            }(),
-
-            getGiftSelection() {
-                let giftOption = this.giftSelection.options[this.giftSelection.selectedIndex].value;
-
-                if (typeof this.options[giftOption] === 'undefined' || giftOption === '_') {
-                    this.options.none();
-                    giftOption.value = '_';
-                }
-                else {
-                    this.options[giftOption]();
-                }
-
-                console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
-            },
-
-            setTypeface() {
-                typefaceStep5 = true;
-            },
-
-            unsetTypeface() {
-                typefaceStep5 = false;
-            },
-
-            isTypefaceSet() {
-                return typefaceStep5;
-            }
-        };
-
-    }();
-
-
 
 
     const controller = function () {
@@ -447,7 +89,7 @@
                 }
 
             },
-            
+
             
             setTypeface() { typefaceSet = true; },
             unsetTypeface() { typefaceSet = false; },
@@ -487,6 +129,9 @@
     }();
 
 
+
+    step2(controller);
+
     function validateStep(select) {
         if (select.value === '_') {
             this.error.textContent = 'Error: Please make a selection.';
@@ -518,9 +163,9 @@
         else if (e.target === step4.lidSelection) {
             step4.getLidSelection();
         }
-        // else if (e.target === step5.giftSelection) {
-        //     step5.getGiftSelection();
-        // }
+        else if (e.target === step5.giftSelection) {
+            step5.getGiftSelection();
+        }
 
         e.stopPropagation();  
     }, false);
@@ -528,10 +173,10 @@
 
 
 
-    const formButtons = document.getElementById('form-buttons');
+    const progressBtns = document.getElementById('progress-buttons');
 
     // customization form listener for select fields
-    formButtons.addEventListener('click', function (e) {
+    progressBtns.addEventListener('click', function (e) {
         if (e.target === controller.nextBtn) {
             controller.nextStep();
             controller.progressUI();
@@ -581,4 +226,3 @@
     }
 */
 
-}());

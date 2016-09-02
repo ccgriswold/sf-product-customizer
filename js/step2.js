@@ -1,8 +1,7 @@
 /* jshint esnext: true, browser: true */
 
-
 // STEP 2: Customize the top of the message box
-module.exports = function () {
+module.exports = function (c) {
 
     // private variables for step 2 validation
     let typefaceStep2 = false;
@@ -20,38 +19,38 @@ module.exports = function () {
 
             return {
                 none() { 
-                    controller.toggleOptions(topOptions);
-                    controller.toggleOptionOff(topTypeface);
+                    c.toggleOptions(topOptions);
+                    c.toggleOptionOff(topTypeface);
 
                     if (step2.isTypefaceSet()) {
-                        controller.unsetTypeface();
+                        c.unsetTypeface();
                         step2.unsetTypeface();
                     }
                 },
                 text() {
-                    controller.toggleOptions(topOptions, topCustomText);
+                    c.toggleOptions(topOptions, topCustomText);
                     
-                    if (!controller.isTypefaceSet()) {
-                        controller.toggleOptionOn(topTypeface);
-                        controller.setTypeface();
+                    if (!c.isTypefaceSet()) {
+                        c.toggleOptionOn(topTypeface);
+                        c.setTypeface();
                         step2.setTypeface();
                     }
                 },
                 icon() {
-                    controller.toggleOptions(topOptions, topUploadIcon);
-                    controller.toggleOptionOff(topTypeface);
+                    c.toggleOptions(topOptions, topUploadIcon);
+                    c.toggleOptionOff(topTypeface);
                     
                     if (step2.isTypefaceSet()) {
-                        controller.unsetTypeface();
+                        c.unsetTypeface();
                         step2.unsetTypeface();
                     }
                 },
                 stock() {
-                    controller.toggleOptions(topOptions, topStockText);
+                    c.toggleOptions(topOptions, topStockText);
 
-                    if (!controller.isTypefaceSet()) {
-                        controller.toggleOptionOn(topTypeface);
-                        controller.setTypeface();
+                    if (!c.isTypefaceSet()) {
+                        c.toggleOptionOn(topTypeface);
+                        c.setTypeface();
                         step2.setTypeface();
                     }
                 },
@@ -74,6 +73,7 @@ module.exports = function () {
                 this.topSelection.value = '_';
             }
             else if (topOption.match(/quote_[0-9]+|verse_[0-9]+/)) {
+                console.log('You\'ve selected stock text!!');
                 this.options.stock();
                 this.options[topOption]();
             }
@@ -81,7 +81,7 @@ module.exports = function () {
                 this.options[topOption]();
             }
 
-            console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
+            console.log('Has the typeface option been used? ' + cntr.isTypefaceSet());
         },
 
         setTypeface() {
@@ -96,4 +96,4 @@ module.exports = function () {
             return typefaceStep2;
         },
     };
-}();
+};
