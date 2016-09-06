@@ -1,66 +1,109 @@
 /* jshint esnext: true, browser: true */
 
-// STEP 4: Customize the lid of the message box
-module.exports = function () {
-    
-    // private variables for step 4 validation
-    let typefaceStep4 = false;
+const toggle = require('./toggle');
+const typeface = require('./typeface');
 
+// step 3 select boxes
+const lidSelection = document.getElementById('step-4__select');
+const lidIconSelection = document.getElementById('step-4__select-icon');
+
+// display area for selected icon
+const lidIconDisplay = document.getElementById('step-4__icon-display');
+
+const lidUploadImage = document.getElementById('step-4__upload-image');
+const lidSelectIcon = document.getElementById('step-4__icon');
+const lidTypeface = document.getElementById('step-4__typeface');
+const lidCustomText = document.getElementById('step-4__custom-text');
+const lidStockText = document.getElementById('step-4__stock-text');
+
+const lidOptions = [ lidUploadImage, lidSelectIcon, lidTypeface, lidCustomText, lidStockText ];
+
+
+const options = function () {
     return {
-        lidSelection: document.getElementById('step-4__select'),
-        
-        options: function (){
-            const lidTypeface = document.getElementById('step-4__typeface');
-            const lidCustomText = document.getElementById('step-4__custom-text');
-
-            return {
-                none() { 
-                    controller.toggleOptionOff(lidCustomText);
-                    controller.toggleOptionOff(lidTypeface);
-                    
-                    if (step4.isTypefaceSet()) {
-                        controller.unsetTypeface();
-                        step4.unsetTypeface();
-                    }
-                },
-                text() {
-                    if (!controller.isTypefaceSet()) {
-                        controller.toggleOptionOn(lidTypeface);
-                        controller.setTypeface();
-                        step4.setTypeface();
-                    }
-
-                    controller.toggleOptionOn(lidCustomText);
-                    console.log('Did Step 4 set typeface? ' + step4.isTypefaceSet());
-                }
-            };
-        }(),
-
-        getLidSelection() {
-            let lidOption = this.lidSelection.options[this.lidSelection.selectedIndex].value;
-
-            if (typeof this.options[lidOption] === 'undefined' || lidOption === '_') {
-                this.options.none();
-                lidOption.value = '_';
+        none() { 
+            toggle.options(lidOptions);
+            
+            if (typeface.isStepSet('step4')) {
+                typeface.unset();
+                typeface.unsetStep('step4');
             }
-            else {
-                this.options[lidOption]();
+        },
+        image() {
+            toggle.options(lidOptions, lidUploadImage);
+            
+            if (typeface.isStepSet('step4')) {
+                typeface.unset();
+                typeface.unsetStep('step4');
+            }
+        },
+        icon() {
+            toggle.options(lidOptions, lidSelectIcon);
+            
+            if (typeface.isStepSet('step4')) {
+                typeface.unset();
+                typeface.unsetStep('step4');
+            }
+        },
+        text() {
+            toggle.options(lidOptions, lidCustomText);
+            
+            if (!typeface.isSet()) {
+                toggle.optionOn(lidTypeface);
+                typeface.set();
+                typeface.setStep('step4');
             }
 
-            console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
+            console.log('Did Step 4 set typeface? ' + typeface.isStepSet('step4'));
         },
+        stock() {
+            toggle.options(lidOptions, lidStockText);
 
-        setTypeface() {
-            typefaceStep4 = true;
+            if (!typeface.isSet()) {
+                toggle.optionOn(lidTypeface);
+                typeface.set();
+                typeface.setStep('step4');
+            }
+
+            console.log('Did Step 4 set typeface? ' + typeface.isStepSet('step4'));
         },
-
-        unsetTypeface() {
-            typefaceStep4 = false;
-        },
-
-        isTypefaceSet() {
-            return typefaceStep4;
-        }
+        quote_1() { lidStockText.textContent = 'Quote 1 goes here'; }, 
+        quote_2() { lidStockText.textContent = 'Quote 2 goes here'; },
+        quote_3() { lidStockText.textContent = 'Quote 3 goes here'; },
+        quote_4() { lidStockText.textContent = 'Quote 4 goes here'; },
+        verse_1() { lidStockText.textContent = 'Verse 1 goes here'; },
+        verse_2() { lidStockText.textContent = 'Verse 2 goes here'; },
+        verse_3() { lidStockText.textContent = 'Verse 3 goes here'; },
+        verse_4() { lidStockText.textContent = 'Verse 4 goes here'; }
     };
+}();
 
+function getLidSelection() {
+    let lidOption = lidSelection.options[lidSelection.selectedIndex].value;
+
+    if (typeof options[lidOption] === 'undefined' || lidOption === '_') {
+        options.none();
+        lidSelection.value = '_';
+    }
+    else if (lidOption.match(/quote_[0-9]+|verse_[0-9]+/)) {
+        options.stock();
+        options[lidOption]();
+    }
+    else {
+        options[lidOption]();
+    }
+
+    console.log('Has the \'global\' typeface option been used? ' + typeface.isSet());
+}
+
+
+// STEP 4: Customize the inside lid of the message box
+
+module.exports = {
+    lidSelection,
+    lidIconSelection,
+    lidIconDisplay,
+    options,
+    getLidSelection
 };
+

@@ -1,11 +1,11 @@
 
 const gulp         = require('gulp'),
-    htmlmin      = require('gulp-htmlmin'),
-    sass         = require('gulp-sass'),
-    gulpBrowser  = require("gulp-browser"),
-    babel        = require('gulp-babel'),
-    pump         = require('pump'),
-    uglify       = require('gulp-uglify');
+      htmlmin      = require('gulp-htmlmin'),
+      sass         = require('gulp-sass'),
+      gulpBrowser  = require("gulp-browser"),
+      babel        = require('gulp-babel'),
+      pump         = require('pump'),
+      uglify       = require('gulp-uglify');
 
 
 gulp.task('html', function () {

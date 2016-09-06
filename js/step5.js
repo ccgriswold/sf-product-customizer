@@ -1,66 +1,58 @@
 /* jshint esnext: true, browser: true */
 
-// STEP 5: Customize gift to go inside the message box
-module.exports = function () {
-    
-    // private variables for step 5 validation
-    let typefaceStep5 = false;
+const toggle = require('./toggle');
+const typeface = require('./typeface');
 
+
+const giftSelection = document.getElementById('step-5__select');
+
+const coasterSelection = document.getElementById('coaster__select');
+const coasterTypeface = document.getElementById('step-5__typeface');
+const coasterCustomText = document.getElementById('step-5__custom-text');
+
+
+const options = function () {
     return {
-        giftSelection: document.getElementById('step-5__select'),
-        
-        options: function (){
-            const giftTypeface = document.getElementById('step-5__typeface');
-            const giftCustomText = document.getElementById('step-5__custom-text');
+        none() { 
+            toggle.options(topOptions);
+            toggle.optionOff(topTypeface);
 
-            return {
-                none() { 
-                    controller.toggleOptionOff(giftCustomText);
-                    controller.toggleOptionOff(giftTypeface);
-                    
-                    if (step5.isTypefaceSet()) {
-                        controller.unsetTypeface();
-                        step5.unsetTypeface();
-                    }
-                },
-                text() {
-                    if (!controller.isTypefaceSet()) {
-                        controller.toggleOptionOn(giftTypeface);
-                        controller.setTypeface();
-                        step5.setTypeface();
-                    }
-
-                    controller.toggleOptionOn(giftCustomText);
-                    console.log('Did Step 5 set typeface? ' + step5.isTypefaceSet());
-                }
-            };
-        }(),
-
-        getGiftSelection() {
-            let giftOption = this.giftSelection.options[this.giftSelection.selectedIndex].value;
-
-            if (typeof this.options[giftOption] === 'undefined' || giftOption === '_') {
-                this.options.none();
-                giftOption.value = '_';
+            if (typeface.isStepSet('step5')) {
+                typeface.unset();
+                typeface.unsetStep('step5');
             }
-            else {
-                this.options[giftOption]();
+        },
+        text() {
+            toggle.options(topOptions, topCustomText);
+            
+            if (!typeface.isSet()) {
+                toggle.optionOn(coasterTypeface);
+                typeface.set();
+                typeface.setStep('step5');
             }
-
-            console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
-        },
-
-        setTypeface() {
-            typefaceStep5 = true;
-        },
-
-        unsetTypeface() {
-            typefaceStep5 = false;
-        },
-
-        isTypefaceSet() {
-            return typefaceStep5;
         }
     };
+}();
 
+
+function getGiftSelection() {
+    let giftOption = giftSelection.options[giftSelection.selectedIndex].value;
+
+    if (typeof options[giftOption] === 'undefined' || giftOption === '_') {
+        options.none();
+        giftSelection.value = '_';
+    }
+    else {
+        options[giftOption]();
+    }
+
+    console.log('Has the typeface option been used? ' + controller.isTypefaceSet());
+}
+
+
+// STEP 5: Customize gift to go inside the message box
+module.exports = {
+    giftSelection,
+    options,
+    getGiftSelection
 };
