@@ -1,0 +1,42 @@
+
+html { box-sizing: border-box; }
+
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+#progress-indicator {
+    list-style-type: none;
+    margin: 1rem 0;
+    padding: 0;
+}
+
+
+.progress-indicator__step {
+    display: inline-block;
+    width: 19%;
+    height: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+
+.progress-indicator__step--highlight {
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+}
+
+
+#selection-error { color: red; }
+
+
+#form-buttons { margin-top: 2rem; }
