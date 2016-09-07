@@ -31,18 +31,6 @@
 
     <form id="customization-form" name="customizationForm">
 
-        <!-- <fieldset id="typeface" class="hidden">
-            <legend>Choose Typeface:</legend>
-
-            <input type="radio" name="typeface" id="r1" value="garamond">
-            <label for="r1"> Garamond</label>
-
-            <input type="radio" name="typeface" id="r2" value="corsiva">
-            <label for="r2"> Monotype Corsiva</label>
-
-            <small>NOTE: Selected typeface will be used for all text customization.</small>
-        </fieldset> -->
-
         <p id="selection-error"></p>
 
         <!--=====[  STEP 1 - Select Box Type  ]=====-->
@@ -71,8 +59,8 @@
             <select name="top" id="step-2__select">
                 <option value="_">Please make a selection</option>
                 <option value="none">No Customization</option>
+                <option value="icon">Choose Icon</option>
                 <option value="text">Custom Text</option>
-                <option value="icon">Upload Icon</option>
                 <option value="quote_1">Quote 1</option>
                 <option value="quote_2">Quote 2</option>
                 <option value="quote_3">Quote 3</option>
@@ -82,6 +70,68 @@
                 <option value="verse_3">Bible Verse 3</option>
                 <option value="verse_4">Bible Verse 4</option>
             </select>
+
+            <fieldset id="step-2__icon" class="hidden">
+                <img id="step-2__icon-display">
+
+                <label for="step-2__select-icon">Select an Icon:</label>
+                <select name="top-icon" id="step-2__select-icon">
+                    <option value="us_flag">US Flag</option>
+                    <option value="silhouette">Silhouette</option>
+                    <optgroup label="US States">
+                        <option value="alabama">Alabama</option>
+                        <option value="alaska">Alaska</option>
+                        <option value="arizona">Arizona</option>
+                        <option value="arkansas">Arkansas</option>
+                        <option value="california">California</option>
+                        <option value="colorado">Colorado</option>
+                        <option value="connecticut">Connecticut</option>
+                        <option value="delaware">Delaware</option>
+                        <option value="florida">Florida</option>
+                        <option value="georgia">Georgia</option>
+                        <option value="hawaii">Hawaii</option>
+                        <option value="idaho">Idaho</option>
+                        <option value="illinois">Illinois</option>
+                        <option value="indiana">Indiana</option>
+                        <option value="iowa">Iowa</option>
+                        <option value="kansas">Kansas</option>
+                        <option value="kentucky">Kentucky</option>
+                        <option value="louisiana">Louisiana</option>
+                        <option value="maine">Maine</option>
+                        <option value="maryland">Maryland</option>
+                        <option value="massachusetts">Massachusetts</option>
+                        <option value="michigan">Michigan</option>
+                        <option value="minnesota">Minnesota</option>
+                        <option value="mississippi">Mississippi</option>
+                        <option value="missouri">Missouri</option>
+                        <option value="montana">Montana</option>
+                        <option value="nebraska">Nebraska</option>
+                        <option value="nevada">Nevada</option>
+                        <option value="new_hampshire">New Hampshire</option>
+                        <option value="new_jersey">New Jersey</option>
+                        <option value="new_mexico">New Mexico</option>
+                        <option value="new_york">New York</option>
+                        <option value="north_carolina">North Carolina</option>
+                        <option value="north_dakota">North Dakota</option>
+                        <option value="ohio">Ohio</option>
+                        <option value="oklahoma">Oklahoma</option>
+                        <option value="oregon">Oregon</option>
+                        <option value="pennsylvania">Pennsylvania</option>
+                        <option value="rhode_island">Rhode Island</option>
+                        <option value="south_carolina">South Carolina</option>
+                        <option value="south_dakota">South Dakota</option>
+                        <option value="tennessee">Tennessee</option>
+                        <option value="texas">Texas</option>
+                        <option value="utah">Utah</option>
+                        <option value="vermont">Vermont</option>
+                        <option value="virginia">Virginia</option>
+                        <option value="washington">Washington</option>
+                        <option value="west_virginia">West Virginia</option>
+                        <option value="wisconsin">Wisconsin</option>
+                        <option value="wyoming">Wyoming</option>
+                    </optgroup>
+                </select>
+            </fieldset>
 
             <fieldset id="step-2__typeface" class="hidden">
                 <legend>Choose Typeface:</legend>
@@ -102,10 +152,6 @@
             
             <p id="step-2__stock-text" class="hidden"></p>
 
-            <fieldset id="step-2__upload-icon" class="hidden">
-                <label>Upload Icon:</label>
-                <input type="file">
-            </fieldset>
         </fieldset>
 
 
@@ -117,8 +163,79 @@
             <select name="front" id="step-3__select">
                 <option value="_">Please make a selection</option>
                 <option value="none">No Customization</option>
+                <option value="icon">Choose Icon</option>
                 <option value="text">Custom Text</option>
+                <option value="quote_1">Quote 1</option>
+                <option value="quote_2">Quote 2</option>
+                <option value="quote_3">Quote 3</option>
+                <option value="quote_4">Quote 4</option>
+                <option value="verse_1">Bible Verse 1</option>
+                <option value="verse_2">Bible Verse 2</option>
+                <option value="verse_3">Bible Verse 3</option>
+                <option value="verse_4">Bible Verse 4</option>
             </select>
+
+            <fieldset id="step-3__icon" class="hidden">
+                <img id="step-3__icon-display">
+
+                <label for="step-3__select-icon">Select an Icon:</label>
+                <select name="front-icon" id="step-3__select-icon">
+                    <option value="us_flag" selected>US Flag</option>
+                    <option value="silhouette">Silhouette</option>
+                    <optgroup label="US States">
+                        <option value="alabama">Alabama</option>
+                        <option value="alaska">Alaska</option>
+                        <option value="arizona">Arizona</option>
+                        <option value="arkansas">Arkansas</option>
+                        <option value="california">California</option>
+                        <option value="colorado">Colorado</option>
+                        <option value="connecticut">Connecticut</option>
+                        <option value="delaware">Delaware</option>
+                        <option value="florida">Florida</option>
+                        <option value="georgia">Georgia</option>
+                        <option value="hawaii">Hawaii</option>
+                        <option value="idaho">Idaho</option>
+                        <option value="illinois">Illinois</option>
+                        <option value="indiana">Indiana</option>
+                        <option value="iowa">Iowa</option>
+                        <option value="kansas">Kansas</option>
+                        <option value="kentucky">Kentucky</option>
+                        <option value="louisiana">Louisiana</option>
+                        <option value="maine">Maine</option>
+                        <option value="maryland">Maryland</option>
+                        <option value="massachusetts">Massachusetts</option>
+                        <option value="michigan">Michigan</option>
+                        <option value="minnesota">Minnesota</option>
+                        <option value="mississippi">Mississippi</option>
+                        <option value="missouri">Missouri</option>
+                        <option value="montana">Montana</option>
+                        <option value="nebraska">Nebraska</option>
+                        <option value="nevada">Nevada</option>
+                        <option value="new_hampshire">New Hampshire</option>
+                        <option value="new_jersey">New Jersey</option>
+                        <option value="new_mexico">New Mexico</option>
+                        <option value="new_york">New York</option>
+                        <option value="north_carolina">North Carolina</option>
+                        <option value="north_dakota">North Dakota</option>
+                        <option value="ohio">Ohio</option>
+                        <option value="oklahoma">Oklahoma</option>
+                        <option value="oregon">Oregon</option>
+                        <option value="pennsylvania">Pennsylvania</option>
+                        <option value="rhode_island">Rhode Island</option>
+                        <option value="south_carolina">South Carolina</option>
+                        <option value="south_dakota">South Dakota</option>
+                        <option value="tennessee">Tennessee</option>
+                        <option value="texas">Texas</option>
+                        <option value="utah">Utah</option>
+                        <option value="vermont">Vermont</option>
+                        <option value="virginia">Virginia</option>
+                        <option value="washington">Washington</option>
+                        <option value="west_virginia">West Virginia</option>
+                        <option value="wisconsin">Wisconsin</option>
+                        <option value="wyoming">Wyoming</option>
+                    </optgroup>
+                </select>
+            </fieldset>
 
             <fieldset id="step-3__typeface" class="hidden">
                 <legend>Choose Typeface:</legend>
@@ -136,6 +253,8 @@
                 <label>Enter custom text:</label>
                 <textarea name="front-text"></textarea>
             </fieldset>
+
+            <p id="step-3__stock-text" class="hidden"></p>
             
         </fieldset>
         
@@ -149,7 +268,7 @@
                 <option value="_">Please make a selection</option>
                 <option value="none">No Customization</option>
                 <option value="text">Custom Text</option>
-                <option value="icon">Upload Image</option>
+                <option value="image">Upload Image</option>
             </select>
 
             <fieldset id="step-4__typeface" class="hidden">
@@ -223,7 +342,7 @@
 
     </form>
 
-    <div id="form-buttons">
+    <div id="progress-buttons">
         <button id="previous" class="hidden">Previous</button>
         <button id="next" class="">Next</button>
         <button id="add-cart" class="hidden">Add to Cart</button>
