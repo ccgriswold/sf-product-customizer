@@ -21,49 +21,38 @@ function unset() { typefaceSet = false; }
 
 function isSet() { return typefaceSet; }
 
+
 function setStep(step) {
-    if (step === 'step2') {
-        typefaceStep2 = true;
-    }
-    else if (step === 'step3') {
-        typefaceStep3 = true;
-    }
-    else if (step === 'step4') {
-        typefaceStep4 = true;
-    }
-    else if (step === 'step5') {
-        typefaceStep5 = true;
-    }
+    const setSteps = {
+        step2() { typefaceStep2 = true; },
+        step3() { typefaceStep2 = true; },
+        step4() { typefaceStep2 = true; },
+        step5() { typefaceStep2 = true; },
+    };
+
+    setSteps[step]();
 }
 
 function unsetStep(step) {
-    if (step === 'step2') {
-        typefaceStep2 = false;
-    }
-    else if (step === 'step3') {
-        typefaceStep3 = false;
-    }
-    else if (step === 'step4') {
-        typefaceStep4 = false;
-    }
-    else if (step === 'step5') {
-        typefaceStep5 = false;
-    }
+    const setSteps = {
+        step2() { typefaceStep2 = false; },
+        step3() { typefaceStep2 = false; },
+        step4() { typefaceStep2 = false; },
+        step5() { typefaceStep2 = false; },
+    };
+
+    setSteps[step]();
 }
 
 function isStepSet(step) {
-    if (step === 'step2') {
-        return typefaceStep2;
-    }
-    else if (step === 'step3') {
-        return typefaceStep3;
-    }
-    else if (step === 'step4') {
-        return typefaceStep4;
-    }
-    else if (step === 'step5') {
-        return typefaceStep5;
-    }
+    const setSteps = {
+        step2() { return typefaceStep2; },
+        step3() { return typefaceStep2; },
+        step4() { return typefaceStep2; },
+        step5() { return typefaceStep2; },
+    };
+
+    return setSteps[step]();
 }
 
 

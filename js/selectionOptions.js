@@ -3,6 +3,7 @@
 const toggle = require('./toggle');
 const typeface = require('./typeface');
 
+
 function options(opt1, opt2, opt3, opt4, opt5) {
     function none() { 
         toggle.options(lidOptions);
@@ -58,7 +59,8 @@ function options(opt1, opt2, opt3, opt4, opt5) {
 
         console.log('Did Step 4 set typeface? ' + typeface.isStepSet('step4'));
     }
-        
+           
+    return {
         quote_1() { lidStockText.textContent = 'Quote 1 goes here'; }, 
         quote_2() { lidStockText.textContent = 'Quote 2 goes here'; },
         quote_3() { lidStockText.textContent = 'Quote 3 goes here'; },
@@ -67,8 +69,6 @@ function options(opt1, opt2, opt3, opt4, opt5) {
         verse_2() { lidStockText.textContent = 'Verse 2 goes here'; },
         verse_3() { lidStockText.textContent = 'Verse 3 goes here'; },
         verse_4() { lidStockText.textContent = 'Verse 4 goes here'; }
-    return {
-        
     };
 }
 
