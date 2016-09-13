@@ -1,5 +1,6 @@
 /*jshint esnext: true, browser: true */
 
+// module provides method to identify user selected icon
 module.exports = function (selectedIcon, preview) {
     const icons = {
         us_flag: {

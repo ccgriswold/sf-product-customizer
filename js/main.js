@@ -32,6 +32,7 @@
     displayIcon('us_flag', step2.topIconDisplay);
     displayIcon('us_flag', step3.frontIconDisplay);
 
+    // assign dom nodes for controller
     const section1 = document.getElementById('step-1');
     const section2 = document.getElementById('step-2');
     const section3 = document.getElementById('step-3');
@@ -52,7 +53,7 @@
     const previousBtn = document.getElementById('previous');
     const addToCartBtn = document.getElementById('add-cart');
 
-
+    // controller keeps track of user progress and user interface presentation through the customization proccess
     const controller = function () {
         let step = 1;
 
@@ -109,13 +110,14 @@
 
 
 
-
+    // event listener for step 1 select dropdown
     section1.addEventListener('change', function (e) {
         step1.getSelectedBox();
         e.stopPropagation();
     }, false);
 
 
+    // event listener for step 2 select dropdown elements
     section2.addEventListener('change', function (e) {
         let icon = step2.topIconSelection.options[step2.topIconSelection.selectedIndex].value;
 
@@ -130,6 +132,7 @@
     }, false);
 
 
+    // event listener for step 3 select dropdown elements
     section3.addEventListener('change', function (e) {
         let icon = step3.frontIconSelection.options[step3.frontIconSelection.selectedIndex].value;
 
@@ -144,6 +147,7 @@
     }, false);
 
 
+    // event listener for step 4 select dropdown elements
     section4.addEventListener('change', function (e) {
         let icon = step4.lidIconSelection.options[step4.lidIconSelection.selectedIndex].value;
 
@@ -158,23 +162,17 @@
     }, false);
 
 
-
-    //     else if (e.target === step4.lidSelection) {
-    //         step4.getLidSelection();
-    //     }
-    //     else if (e.target === step5.giftSelection) {
-    //         step5.getGiftSelection();
-    //     }
-
-    //     e.stopPropagation();  
-    // }, false);
+    // event listener for step 5 select dropdown elements
+    section5.addEventListener('change', function (e) {
+        // code for step 5 select elements
+    }, false);
 
 
 
 
     const progressBtns = document.getElementById('progress-buttons');
 
-    // customization form listener for select fields
+    // event listener for progress buttons (next, previous, add to cart)
     progressBtns.addEventListener('click', function (e) {
         if (e.target === nextBtn) {
             controller.nextStep();
@@ -186,18 +184,22 @@
             controller.progressUI();
             console.log('You\'re on step: ' + controller.getStep());
         }
+        else if (e.target === addToCartBtn) {
+            // code for add to cart button
+        }
 
         e.stopPropagation();
     }, false);
 
 
-    // grab z radio buttons
+    // TODO: validate typeface user selection
     const radios = document.getElementsByName('typeface');
 
     // let value = radios.map((e) => e.checked || e); itertate with a for loop
 
+
 /*
-    // image loading functionality
+    // testing image loading functionality
     var imageLoader = document.getElementById('imageLoader');
     var canvas = document.getElementById('imageCanvas');
     var ctx = canvas.getContext('2d');
