@@ -9,19 +9,19 @@ module.exports = function (selectedIcon, preview) {
         },
         us_flag: {
             name: 'US Flag',
-            image: "{{ 'usflag.jpg' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=American+Flag.png' }}"
+            image: "https://www.dropbox.com/s/aq3z2mnmheop6cf/American%20Flag.png?raw=1"
         },
         pistol_cross: {
             name: 'Crossed Pistols',
-            image: "{{ 'Pistols+Crossed.jpg' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Pistols+Crossed.jpg'}}"
+            image: "https://www.dropbox.com/s/2oyu7ks3m3yl6oq/Pistols%20Crossed.jpg?raw=1"
         },
         rifle_cross: {
             name: 'Rifles',
-            image: "{{ 'Rifles+Crossed.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Rifles+Crossed.png'}}"
+            image: "https://www.dropbox.com/s/gcrz9y5oq3syehs/Rifles%20Crossed.png?raw=1"
         },
         lure: {
             name: 'Lure',
-            image: "{{ 'Lure.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Lure.png'}}"
+            image: "https://www.dropbox.com/s/pdgq5vuhk2rb5js/Lure.png?raw=1"
         },
         thorn_cross: {
             name: 'Thorn Cross',
@@ -29,19 +29,19 @@ module.exports = function (selectedIcon, preview) {
         },
         sc_palm_tree: {
             name: 'SC Palm Tree',
-            image: "{{ 'SC+Palm+Tree.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=SC+Palm+Tree.png'}}"
+            image: "https://www.dropbox.com/s/ehmdprjy055qtqr/SC%20Palm%20Tree.png?raw=1"
         },
         fish_icon: {
             name: 'Fish Icon',
-            image: "{{ 'Fish+icon.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Fish+icon.png'}}"
+            image: "https://www.dropbox.com/s/6v99jvgjljobrxb/fishing.jpg?raw=1"
         },
         daughter_dad_icon: {
             name: 'Father/Daughter Icon',
-            image: "{{ 'Daddy+Daughter+Icon.gif' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Daddy+Daughter+Icon.gif'}}"
+            image: "https://www.dropbox.com/s/pdxuc9lkvk8w1k4/Daddy%20Daughter%20Icon.gif?raw=1"
         },
         son_dad_fishing_icon: {
             name: 'Father/Son Fishing',
-            image: "{{ 'fishing.jpg' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=fishing.jpg'}}"
+            image: "https://www.dropbox.com/s/6v99jvgjljobrxb/fishing.jpg?raw=1"
         },
         silhouette: {
             name: 'Silhouette',

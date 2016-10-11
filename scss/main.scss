@@ -1,18 +1,221 @@
 
-html { box-sizing: border-box; }
-
+html {
+box-sizing: border-box;
 
 body {
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    // -moz-osx-font-smoothing: grayscale;
+    margin: auto;
+    header{
+        padding-top:0;
+        margin-top:0;
+        background-color: rgb(0, 0, 0);
+        opacity: 0.6;
+        color: white;
+        text-transform: uppercase;
+        width: 100%;
+        position:absolute;
+        z-index: 2;
+        #headerName{
+            text-align: left;
+            width: 30%;
+            font-size: 2.5vw;
+            display: inline-block;
+            margin-left: 2vw;
+            strong{
+                font-style:oblique;
+                display: block;
+                font-size: 4vw;
+            }
+        }
+        ul{
+            text-decoration: none;
+            list-style: none;
+            float:right;
+            margin: 3vw;
+            padding-top: 1.8vw;
+            a{
+                text-decoration: none;
+                display:inline-block;
+                padding-right: 2vw;
+            }
+            a:hover{
+                color: rgb(244, 237, 175);
+            }
+            a:visited{
+                color:white;
+            }
+        }
+    }
+    video{
+        width: 100%;
+        background-color: black;
+        margin-bottom: 2.5%;
+
+        source{
+            padding:0;
+            margin-right: 0;
+            margin-left: 0;
+            margin-top: -200vh;
+            min-width:100%;
+            height: 100vh;
+            position: absolute;
+        }
+    }
+
+// Top Under Header Section
+    #helloSection{
+        display: block;
+        margin-bottom: 15vw;
+        margin-top: -35vw;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        color: white;
+        h2{
+            font-size: 3vw;
+        }
+        p{
+            font-style: italic;
+            font-size: 1.75vw;
+        }
+        button{
+            font-size: 1.60vw;
+            background-color: rgb(246, 125, 12);
+            width: 20%;
+            border-radius: 25px;
+            border: black;
+            padding: 1%;
+
+            a{
+                padding: 3%;
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+
+//Product List Section
+    #productSection{
+        width: 95%;
+        margin-top: 4%;
+        margin-left: 2%;
+        margin-rigth: 2%;
+
+        h2{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 3vw;
+        }
+        p{
+            text-align: center;
+            font-size: 1.75vw;
+            height: 4vh;
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-bottom: 2%;
+        }
+        .boxOptions{
+            display: inline-block;
+            width: 22.5%;
+            margin-left:1%;
+            margin-right:1%;
+
+
+            a{
+                text-decoration: none;
+                color: black;
+                display: inline-block;
+            }
+            a:visited{
+                color: black;
+            }
+            h3{
+                font-size: 1.75vw;
+                text-decoration: none;
+                text-align: center;
+            }
+            img{
+                margin: 0;
+                width: 25vw;
+                height: 15.5vw;
+                display: block;
+                width:100%;
+
+            }
+            p{
+                font-size: 1.25vw;
+                // height: 5vh;
+            }
+            button{
+                background-color: rgb(94, 58, 4);
+                border-radius: 10px;
+                width: 50%;
+                font-size: 1.6vw;
+                margin-left: 25%;
+                margin-right: 50%;
+                margin-top: 5%;
+            }
+        }
+        #boxBox{
+            margin-left: 2%;
+            margin-bottom: 5%;
+        }
+    }
+
+    #boxCustom{
+        margin-left: 3%;
+
+        h2{
+            text-align: left;
+            text-transform: uppercase;
+        }
+        p{
+            text-align: left;
+        }
+    }
+    #boxPurchase{
+        margin: 3%;
+        img{
+            width: 20vw;
+            display: inline-block;
+        }
+        .boxInfo{
+            display: inline-block;
+            margin-left: 2.5%;
+            label{
+                display: block;
+                text-transform: uppercase;
+            }
+            select{
+                option{
+                    size: 3vw;
+                }
+            }
+        }
+    }
+
 
 }
 
+footer{
+    display:inline-block;
+    h2{
+        text-align: left;
+        width: 75%;
+    }
+    img{
+        width:3vw;
+    }
+}
+
+
+
+///////////////////
 
 .hidden {
     display: none;
 }
-
 
 #progress-indicator {
     list-style-type: none;
@@ -20,8 +223,8 @@ body {
     padding: 0;
 }
 
-
 .progress-indicator__step {
+    background-color: grey;
     display: inline-block;
     width: 19%;
     height: 2rem;
@@ -29,19 +232,14 @@ body {
     text-align: center;
 }
 
-
 .progress-indicator__step--highlight {
-    background-color: gray;
+    background-color: orange;
     color: white;
     font-weight: bold;
 }
 
-
 #selection-error { color: red; }
-
 
 #form-buttons { margin-top: 2rem; }
 
-img{
-    width: 20em;
 }

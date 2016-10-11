@@ -21,9 +21,9 @@ const lidOptions = [ lidUploadImage, lidSelectIcon, lidTypeface, lidCustomText, 
 
 const options = function () {
     return {
-        none() { 
+        none() {
             toggle.options(lidOptions);
-            
+
             if (typeface.isStepSet('step4')) {
                 typeface.unset();
                 typeface.unsetStep('step4');
@@ -31,7 +31,7 @@ const options = function () {
         },
         image() {
             toggle.options(lidOptions, lidUploadImage);
-            
+
             if (typeface.isStepSet('step4')) {
                 typeface.unset();
                 typeface.unsetStep('step4');
@@ -39,7 +39,7 @@ const options = function () {
         },
         icon() {
             toggle.options(lidOptions, lidSelectIcon);
-            
+
             if (typeface.isStepSet('step4')) {
                 typeface.unset();
                 typeface.unsetStep('step4');
@@ -47,7 +47,7 @@ const options = function () {
         },
         text() {
             toggle.options(lidOptions, lidCustomText);
-            
+
             if (!typeface.isSet()) {
                 toggle.optionOn(lidTypeface);
                 typeface.set();
@@ -67,14 +67,14 @@ const options = function () {
 
             console.log('Did Step 4 set typeface? ' + typeface.isStepSet('step4'));
         },
-        quote_1() { lidStockText.textContent = 'Quote 1 goes here'; }, 
-        quote_2() { lidStockText.textContent = 'Quote 2 goes here'; },
-        quote_3() { lidStockText.textContent = 'Quote 3 goes here'; },
-        quote_4() { lidStockText.textContent = 'Quote 4 goes here'; },
-        verse_1() { lidStockText.textContent = 'Verse 1 goes here'; },
-        verse_2() { lidStockText.textContent = 'Verse 2 goes here'; },
-        verse_3() { lidStockText.textContent = 'Verse 3 goes here'; },
-        verse_4() { lidStockText.textContent = 'Verse 4 goes here'; }
+        quote_1() { lidStockText.textContent = 'Our Tea is Sweet, Words are Long, Days are Warm, And Faith is Strong'; },
+        quote_2() { lidStockText.textContent = 'Dads holds our hand for a little while and our hearts forever.'; },
+        quote_3() { lidStockText.textContent = 'Mom: The glue that holds everything together even when she feels like she may fall apart.'; },
+        quote_4() { lidStockText.textContent = 'Carolina Born, Carolina Raised, Carolina Proud All My Days.'; },
+        verse_1() { lidStockText.textContent = '"The lazy do not roast any game, but the diligent feed on the riches of the hunt." -Proverbs 12-27'; },
+        verse_2() { lidStockText.textContent = '"Train up a child in the way he should go, even when he is old he will not depart from it." -Proverbs 22:6'; },
+        verse_3() { lidStockText.textContent = '"Yet in all these things we are more than conquerors through Him who loved us." -Romans 8:37'; },
+        verse_4() { lidStockText.textContent = 'Southern Beels are raised on Sweet Tea and a whole lotta\' Jesus.'; }
     };
 }();
 
@@ -106,4 +106,3 @@ module.exports = {
     options,
     getLidSelection
 };
-
