@@ -16,6 +16,7 @@
     // let oldURL = document.referrer;
     // console.log(oldURL);
 
+window.addEventListener('load', function () {
     // import modules
     const step1 = require('./step1');
     const step2 = require('./step2');
@@ -227,3 +228,4 @@
     }
 */
 
+});
