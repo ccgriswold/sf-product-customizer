@@ -3,14 +3,51 @@
 // module provides method to identify user selected icon
 module.exports = function (selectedIcon, preview) {
     const icons = {
+        no_image: {
+            name: 'No Image',
+            image: "{{ 'noimage.jpg' | asset_url }}"
+        },
         us_flag: {
             name: 'US Flag',
-            image: "{{ 'alabama.jpg' | asset_url }}"
+            image: "{{ 'usflag.jpg' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=American+Flag.png' }}"
+        },
+        pistol_cross: {
+            name: 'Crossed Pistols',
+            image: "{{ 'Pistols+Crossed.jpg' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Pistols+Crossed.jpg'}}"
+        },
+        rifle_cross: {
+            name: 'Rifles',
+            image: "{{ 'Rifles+Crossed.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Rifles+Crossed.png'}}"
+        },
+        lure: {
+            name: 'Lure',
+            image: "{{ 'Lure.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Lure.png'}}"
+        },
+        thorn_cross: {
+            name: 'Thorn Cross',
+            image: "{{ 'Cross+Icon.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Cross+Icon.png'}}"
+        },
+        sc_palm_tree: {
+            name: 'SC Palm Tree',
+            image: "{{ 'SC+Palm+Tree.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=SC+Palm+Tree.png'}}"
+        },
+        fish_icon: {
+            name: 'Fish Icon',
+            image: "{{ 'Fish+icon.png' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Fish+icon.png'}}"
+        },
+        daughter_dad_icon: {
+            name: 'Father/Daughter Icon',
+            image: "{{ 'Daddy+Daughter+Icon.gif' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=Daddy+Daughter+Icon.gif'}}"
+        },
+        son_dad_fishing_icon: {
+            name: 'Father/Son Fishing',
+            image: "{{ 'fishing.jpg' | 'https://www.dropbox.com/sh/9qvs1uz9oaf9xgu/AAAtUvvTI6DOZBU3S2krNxuna/Icons?dl=0&preview=fishing.jpg'}}"
         },
         silhouette: {
             name: 'Silhouette',
             image: "{{ 'silhouette.jpg' | asset_url }}"
         },
+
         alabama: {
             name: 'Alabama',
             image: "{{ 'alabama.jpg' | asset_url }}"
@@ -206,9 +243,10 @@ module.exports = function (selectedIcon, preview) {
         wyoming: {
             name: 'Wyoming',
             image: "{{ 'wyoming.jpg' | asset_url }}"
-        }
+        },
+
     };
-    
+
     preview.src = icons[selectedIcon].image;
     preview.alt = icons[selectedIcon].name;
 };

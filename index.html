@@ -2,362 +2,423 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SF | Message Box</title>
+    <link rel="icon" type="image/png" href="./img/SF-LogoBW.png">
     <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Brad Runnels">
-    
-    <link rel="shortcut icon" href="./favicon.ico">
+    <meta name="keywords" content="Southern+Favor | Special Gift">
+    <meta name="author" content="Brad Runnels &amp; Clayton Griswold">
+
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+    <script src="js/main.js"></script>
+
 </head>
 <body>
-
-    <!-- box customization -->
-    <h2>Customize Your Message Box</h2>
-    <p>Seditium assimint ra nes dest quis rerepelis sit earum re nimus dent. Busam et autas vendis ratest, id magnate cearum denditasit di nam eos ent, quossint eliquasim fuga. Genduci llorem.</p>
-
-    <!-- customization step indicator -->
-    <ul id="progress-indicator">
-        <li id="progress-indicator__step-1" class="progress-indicator__step progress-indicator__step--highlight">1 Select Box Type</li>
-        <li id="progress-indicator__step-2" class="progress-indicator__step">2 Customize Top</li>
-        <li id="progress-indicator__step-3" class="progress-indicator__step">3 Customize Front</li>
-        <li id="progress-indicator__step-4" class="progress-indicator__step">4 Customize Lid</li>
-        <li id="progress-indicator__step-5" class="progress-indicator__step">5 Customize Gift</li>
-    </ul>
-
-
-    <form id="customization-form" name="customizationForm">
-
-        <p id="selection-error"></p>
-
-        <!--=====[  STEP 1 - Select Box Type  ]=====-->
-        <fieldset id="step-1" class="">
-            <img id="step-1__image">
-            
-            <label for="step-1__select">Box Type:</label>
-            <select name="box-type" id="step-1__select">
-                <option value="ammo">Ammo Box</option>
-                <option value="artillery">Artillery Box</option>
-                <option value="traditional">Traditional Box</option>
-                <option value="letter">Letter Box</option>
-            </select>
-            
-            <h3>Price: $<span id="step-1__price"></span></h3>
-            
-            <p id="step-1__desc"></p>            
-        </fieldset>
-
-
-        <!--=====[  STEP 2 - Customize Top  ]=====-->
-        <fieldset id="step-2" class="hidden">
-            <img src="{{ 'box-top.jpg' | asset_url }}" alt="Customize the top of your message box">
-
-            <label for="step-2__select">Customize Top:</label>
-            <select name="top" id="step-2__select">
-                <option value="_">Please make a selection</option>
-                <option value="none">No Customization</option>
-                <option value="icon">Choose Icon</option>
-                <option value="text">Custom Text</option>
-                <option value="quote_1">Quote 1</option>
-                <option value="quote_2">Quote 2</option>
-                <option value="quote_3">Quote 3</option>
-                <option value="quote_4">Quote 4</option>
-                <option value="verse_1">Bible Verse 1</option>
-                <option value="verse_2">Bible Verse 2</option>
-                <option value="verse_3">Bible Verse 3</option>
-                <option value="verse_4">Bible Verse 4</option>
-            </select>
-
-            <fieldset id="step-2__icon" class="hidden">
-                <img id="step-2__icon-display">
-
-                <label for="step-2__select-icon">Select an Icon:</label>
-                <select name="top-icon" id="step-2__select-icon">
-                    <option value="us_flag">US Flag</option>
-                    <option value="silhouette">Silhouette</option>
-                    <optgroup label="US States">
-                        <option value="alabama">Alabama</option>
-                        <option value="alaska">Alaska</option>
-                        <option value="arizona">Arizona</option>
-                        <option value="arkansas">Arkansas</option>
-                        <option value="california">California</option>
-                        <option value="colorado">Colorado</option>
-                        <option value="connecticut">Connecticut</option>
-                        <option value="delaware">Delaware</option>
-                        <option value="florida">Florida</option>
-                        <option value="georgia">Georgia</option>
-                        <option value="hawaii">Hawaii</option>
-                        <option value="idaho">Idaho</option>
-                        <option value="illinois">Illinois</option>
-                        <option value="indiana">Indiana</option>
-                        <option value="iowa">Iowa</option>
-                        <option value="kansas">Kansas</option>
-                        <option value="kentucky">Kentucky</option>
-                        <option value="louisiana">Louisiana</option>
-                        <option value="maine">Maine</option>
-                        <option value="maryland">Maryland</option>
-                        <option value="massachusetts">Massachusetts</option>
-                        <option value="michigan">Michigan</option>
-                        <option value="minnesota">Minnesota</option>
-                        <option value="mississippi">Mississippi</option>
-                        <option value="missouri">Missouri</option>
-                        <option value="montana">Montana</option>
-                        <option value="nebraska">Nebraska</option>
-                        <option value="nevada">Nevada</option>
-                        <option value="new_hampshire">New Hampshire</option>
-                        <option value="new_jersey">New Jersey</option>
-                        <option value="new_mexico">New Mexico</option>
-                        <option value="new_york">New York</option>
-                        <option value="north_carolina">North Carolina</option>
-                        <option value="north_dakota">North Dakota</option>
-                        <option value="ohio">Ohio</option>
-                        <option value="oklahoma">Oklahoma</option>
-                        <option value="oregon">Oregon</option>
-                        <option value="pennsylvania">Pennsylvania</option>
-                        <option value="rhode_island">Rhode Island</option>
-                        <option value="south_carolina">South Carolina</option>
-                        <option value="south_dakota">South Dakota</option>
-                        <option value="tennessee">Tennessee</option>
-                        <option value="texas">Texas</option>
-                        <option value="utah">Utah</option>
-                        <option value="vermont">Vermont</option>
-                        <option value="virginia">Virginia</option>
-                        <option value="washington">Washington</option>
-                        <option value="west_virginia">West Virginia</option>
-                        <option value="wisconsin">Wisconsin</option>
-                        <option value="wyoming">Wyoming</option>
-                    </optgroup>
-                </select>
-            </fieldset>
-
-            <fieldset id="step-2__typeface" class="hidden">
-                <legend>Choose Typeface:</legend>
-
-                <input type="radio" name="typeface" id="r1" value="garamond">
-                <label for="r1"> Garamond</label>
-
-                <input type="radio" name="typeface" id="r2" value="corsiva">
-                <label for="r2"> Monotype Corsiva</label>
-
-                <small>NOTE: Selected typeface will be used for all text customization.</small>
-            </fieldset>
-
-            <fieldset id="step-2__custom-text" class="hidden">
-                <label for="">Enter custom text:</label>
-                <textarea name="top-text"></textarea>
-            </fieldset>
-            
-            <p id="step-2__stock-text" class="hidden"></p>
-
-        </fieldset>
-
-
-        <!--=====[  STEP 3 - Customize Front  ]=====-->
-        <fieldset id="step-3" class="hidden">
-            <img src="{{ 'box-front.jpg' | asset_url }}" alt="Customize the front of your message box">
-
-            <label for="step-3__select">Customize Front:</label>
-            <select name="front" id="step-3__select">
-                <option value="_">Please make a selection</option>
-                <option value="none">No Customization</option>
-                <option value="icon">Choose Icon</option>
-                <option value="text">Custom Text</option>
-                <option value="quote_1">Quote 1</option>
-                <option value="quote_2">Quote 2</option>
-                <option value="quote_3">Quote 3</option>
-                <option value="quote_4">Quote 4</option>
-                <option value="verse_1">Bible Verse 1</option>
-                <option value="verse_2">Bible Verse 2</option>
-                <option value="verse_3">Bible Verse 3</option>
-                <option value="verse_4">Bible Verse 4</option>
-            </select>
-
-            <fieldset id="step-3__icon" class="hidden">
-                <img id="step-3__icon-display">
-
-                <label for="step-3__select-icon">Select an Icon:</label>
-                <select name="front-icon" id="step-3__select-icon">
-                    <option value="us_flag" selected>US Flag</option>
-                    <option value="silhouette">Silhouette</option>
-                    <optgroup label="US States">
-                        <option value="alabama">Alabama</option>
-                        <option value="alaska">Alaska</option>
-                        <option value="arizona">Arizona</option>
-                        <option value="arkansas">Arkansas</option>
-                        <option value="california">California</option>
-                        <option value="colorado">Colorado</option>
-                        <option value="connecticut">Connecticut</option>
-                        <option value="delaware">Delaware</option>
-                        <option value="florida">Florida</option>
-                        <option value="georgia">Georgia</option>
-                        <option value="hawaii">Hawaii</option>
-                        <option value="idaho">Idaho</option>
-                        <option value="illinois">Illinois</option>
-                        <option value="indiana">Indiana</option>
-                        <option value="iowa">Iowa</option>
-                        <option value="kansas">Kansas</option>
-                        <option value="kentucky">Kentucky</option>
-                        <option value="louisiana">Louisiana</option>
-                        <option value="maine">Maine</option>
-                        <option value="maryland">Maryland</option>
-                        <option value="massachusetts">Massachusetts</option>
-                        <option value="michigan">Michigan</option>
-                        <option value="minnesota">Minnesota</option>
-                        <option value="mississippi">Mississippi</option>
-                        <option value="missouri">Missouri</option>
-                        <option value="montana">Montana</option>
-                        <option value="nebraska">Nebraska</option>
-                        <option value="nevada">Nevada</option>
-                        <option value="new_hampshire">New Hampshire</option>
-                        <option value="new_jersey">New Jersey</option>
-                        <option value="new_mexico">New Mexico</option>
-                        <option value="new_york">New York</option>
-                        <option value="north_carolina">North Carolina</option>
-                        <option value="north_dakota">North Dakota</option>
-                        <option value="ohio">Ohio</option>
-                        <option value="oklahoma">Oklahoma</option>
-                        <option value="oregon">Oregon</option>
-                        <option value="pennsylvania">Pennsylvania</option>
-                        <option value="rhode_island">Rhode Island</option>
-                        <option value="south_carolina">South Carolina</option>
-                        <option value="south_dakota">South Dakota</option>
-                        <option value="tennessee">Tennessee</option>
-                        <option value="texas">Texas</option>
-                        <option value="utah">Utah</option>
-                        <option value="vermont">Vermont</option>
-                        <option value="virginia">Virginia</option>
-                        <option value="washington">Washington</option>
-                        <option value="west_virginia">West Virginia</option>
-                        <option value="wisconsin">Wisconsin</option>
-                        <option value="wyoming">Wyoming</option>
-                    </optgroup>
-                </select>
-            </fieldset>
-
-            <fieldset id="step-3__typeface" class="hidden">
-                <legend>Choose Typeface:</legend>
-
-                <input type="radio" name="typeface" id="r3" value="garamond">
-                <label for="r3"> Garamond</label>
-
-                <input type="radio" name="typeface" id="r4" value="corsiva">
-                <label for="r4"> Monotype Corsiva</label>
-
-                <small>NOTE: Selected typeface will be used for all text customization.</small>
-            </fieldset>
-
-            <fieldset id="step-3__custom-text" class="hidden">
-                <label>Enter custom text:</label>
-                <textarea name="front-text"></textarea>
-            </fieldset>
-
-            <p id="step-3__stock-text" class="hidden"></p>
-            
-        </fieldset>
-        
-        
-        <!--=====[  STEP 4 - Customize Lid  ]=====-->
-        <fieldset id="step-4" class="hidden">
-            <img src="{{ 'box-lid.jpg' | asset_url }}" alt="Customize the lid of your message box">
-            
-            <label for="step-4__select">Customize Lid:</label>
-            <select name="lid" id="step-4__select">
-                <option value="_">Please make a selection</option>
-                <option value="none">No Customization</option>
-                <option value="text">Custom Text</option>
-                <option value="image">Upload Image</option>
-            </select>
-
-            <fieldset id="step-4__typeface" class="hidden">
-                <legend>Choose Typeface:</legend>
-
-                <input type="radio" name="typeface" id="r5" value="garamond">
-                <label for="r5"> Garamond</label>
-
-                <input type="radio" name="typeface" id="r6" value="corsiva">
-                <label for="r6"> Monotype Corsiva</label>
-
-                <small>NOTE: Selected typeface will be used for all text customization.</small>
-            </fieldset>
-            
-            <fieldset id="step-4__custom-text" class="hidden">
-                <label>Enter custom text:</label>
-                <textarea name="lid-text"></textarea>
-            </fieldset>
-            
-            <fieldset id="step-4__upload-image" class="hidden">
-                <label>Upload Image:</label>
-                <input type="file">
-            </fieldset>
-        </fieldset>
-
-
-        <!--=====[  STEP 5 - Customize Gift  ]=====-->
-        <fieldset id="step-5" class="hidden">
-            <img id="step-5__image">
-
-            <label for="step-5__select">Gift:</label>
-            <select name="gift" id="step-5__select">
-                <option value="_">Please make a selection</option>
-                <option value="none">No Gift</option>
-                <option value="text">Leather Coaster</option>
-                <option value="icon">Jack Daniel's&trade; Fudge</option>
-                <option value="image">Handcrafted Chocolates</option>
-            </select>
-            
-
-            <!-- all this below is for leather coaster option -->
-            <fieldset id="step-5__typeface" class="hidden">
-                <legend>Choose Typeface:</legend>
-
-                <input type="radio" name="typeface" id="r7" value="garamond">
-                <label for="r7"> Garamond</label>
-
-                <input type="radio" name="typeface" id="r8" value="corsiva">
-                <label for="r8"> Monotype Corsiva</label>
-
-                <small>NOTE: Selected typeface will be used for all text customization.</small>
-            </fieldset>
-
-            <fieldset id="step-5__custom-text" class="hidden">
-                <label>Enter custom text:</label>
-                <textarea name="coaster-text"></textarea>
-            </fieldset>
-
-            <p id="step-5__stock-text" class="hidden"></p>
-
-            <fieldset id="step-5__upload-icon" class="hidden">
-                <label>Icon File:</label>
-                <input type="file">
-            </fieldset>
-
-            <fieldset id="step-5__upload-image" class="hidden">
-                <label>Image File:</label>
-                <input type="file">
-            </fieldset>
-        </fieldset>
-
-    </form>
-
-    <div id="progress-buttons">
-        <button id="previous" class="hidden">Previous</button>
-        <button id="next" class="">Next</button>
-        <button id="add-cart" class="hidden">Add to Cart</button>
+    <!-- header section -->
+    <div>
+        <h1 id="headerName">Southern Favor</h1>
+        <ul>
+            <a href="#productSection"><li class="headerOption">PRODUCTS</li></a>
+            <a href="#storySection"><li class="headerOption">OUR STORY</li></a>
+            <a ><li class="headerOption">CART</li></a>
+        </ul>
     </div>
-    
-    
-    
+
+    <!-- Top Hello Section -->
+    <div id="helloSection">
+        <h2>Designed by You - and Your Memories</h2>
+        <p>Give the gift that they can't buy for themselves.</p>
+        <p>The Southern Favor Message Box.</p>
+        <button href="./js/main.js">Design Your Box</button>
+    </div>
+
+    <!-- Products -->
+    <div id="productSection">
+        <h2>Our Products</h2>
+        <p>Below is a list of our current box offerings.  Each is fully customizable with engravings on the top, front, and inside lid.</p>
+        <div class="boxOptions"><a href="#boxPurchase">
+            <h3>Artillery Box</h3>
+            <img class="boxImage" src="https://www.dropbox.com/s/n2miqlaj1ftyp5v/Southern%20Favor%20Exterior.jpg?raw=1" />
+            <p> </p>
+            <button class="boxButton"><a href="boxPurchase">Order</a></button>
+        </a></div>
+        <div class="boxOptions"><a href="#boxPurchase">
+            <h3>Ammo Box</h3>
+            <img class="boxImage" src="https://www.dropbox.com/s/tj601wqf4sq2n5d/Dad%20Son%20Fishing%20exterior.jpg?raw=1" />
+            <p> </p>
+            <button class="boxButton"><a href="boxPurchase">Order</a></button>
+        </a></div>
+        <div class="boxOptions"><a href="#boxPurchase">
+            <h3>BuckShot Box</h3>
+            <img class="boxImage" src="https://www.dropbox.com/s/iunuckgktfcq9mw/Ryan%20Exterior.jpg?raw=1" />
+            <p> </p>
+            <button class="boxButton"><a href="boxPurchase">Order</a></button>
+        </a></div>
+        <div class="boxOptions"><a href="#boxPurchase">
+            <h3>Letter Box</h3>
+            <img class="boxImage" src="https://www.dropbox.com/s/g28303byzvomgd7/Daddy%20Letter%20box%20exterior.jpg?raw=1" />
+            <p> </p>
+            <button class="boxButton"><a href="boxPurchase">Order</a></button>
+        </a></div>
+    </div>
+
+    <div id="boxPurchase">
+
+        <!-- box customization -->
+        <h2>Customize Your Message Box</h2>
+        <p>Give your box a custom flair with text or an image on the top, front, and inside of your box.</p>
+
+        <!-- customization step indicator -->
+        <ul id="progress-indicator">
+            <li id="progress-indicator__step-1" class="progress-indicator__step progress-indicator__step--highlight">1 Select Box Type</li>
+            <li id="progress-indicator__step-2" class="progress-indicator__step">2 Customize Top</li>
+            <li id="progress-indicator__step-3" class="progress-indicator__step">3 Customize Front</li>
+            <li id="progress-indicator__step-4" class="progress-indicator__step">4 Customize Lid</li>
+            <li id="progress-indicator__step-5" class="progress-indicator__step">5 Customize Gift</li>
+        </ul>
+
+
+        <form id="customization-form" name="customizationForm">
+
+            <p id="selection-error"></p>
+
+            <!--=====[  STEP 1 - Select Box Type  ]=====-->
+            <fieldset id="step-1" class="">
+                <img id="step-1__image">
+
+                <label for="step-1__select">Box Type:</label>
+                <select name="box-type" id="step-1__select">
+                    <option value="ammo">Ammo Box</option>
+                    <option value="artillery">Artillery Box</option>
+                    <option value="traditional">BuckShot Box</option>
+                    <option value="letter">Letter Box</option>
+                </select>
+
+                <h3>Price: $<span id="step-1__price"></span></h3>
+
+                <p id="step-1__desc"></p>
+            </fieldset>
+
+            <!--=====[  STEP 2 - Customize Top  ]=====-->
+            <fieldset id="step-2" class="hidden">
+                <img src="https://www.dropbox.com/s/n2miqlaj1ftyp5v/Southern%20Favor%20Exterior.jpg?raw=1" alt="Customize the top of your message box">
+
+                <label for="step-2__select">Customize Top:</label>
+                <select name="top" id="step-2__select">
+                    <option value="_">Please make a selection</option>
+                    <option value="none">No Customization</option>
+                    <option value="icon">Choose Icon</option>
+                    <option value="text">Custom Text</option>
+                    <option value="quote_1">Quote 1</option>
+                    <option value="quote_2">Quote 2</option>
+                    <option value="quote_3">Quote 3</option>
+                    <option value="quote_4">Quote 4</option>
+                    <option value="verse_1">Bible Verse 1</option>
+                    <option value="verse_2">Bible Verse 2</option>
+                    <option value="verse_3">Bible Verse 3</option>
+                    <option value="verse_4">Bible Verse 4</option>
+                </select>
+
+                <fieldset id="step-2__icon" class="hidden">
+                    <img id="step-2__icon-display">
+
+                    <label for="step-2__select-icon">Select an Icon:</label>
+                    <select name="top-icon" id="step-2__select-icon">
+                        <option value="us_flag">US Flag</option>
+                        <option value="silhouette">Silhouette</option>
+
+                        <optgroup label="US States">
+                            <option value="alabama">Alabama</option>
+                            <option value="alaska">Alaska</option>
+                            <option value="arizona">Arizona</option>
+                            <option value="arkansas">Arkansas</option>
+                            <option value="california">California</option>
+                            <option value="colorado">Colorado</option>
+                            <option value="connecticut">Connecticut</option>
+                            <option value="delaware">Delaware</option>
+                            <option value="florida">Florida</option>
+                            <option value="georgia">Georgia</option>
+                            <option value="hawaii">Hawaii</option>
+                            <option value="idaho">Idaho</option>
+                            <option value="illinois">Illinois</option>
+                            <option value="indiana">Indiana</option>
+                            <option value="iowa">Iowa</option>
+                            <option value="kansas">Kansas</option>
+                            <option value="kentucky">Kentucky</option>
+                            <option value="louisiana">Louisiana</option>
+                            <option value="maine">Maine</option>
+                            <option value="maryland">Maryland</option>
+                            <option value="massachusetts">Massachusetts</option>
+                            <option value="michigan">Michigan</option>
+                            <option value="minnesota">Minnesota</option>
+                            <option value="mississippi">Mississippi</option>
+                            <option value="missouri">Missouri</option>
+                            <option value="montana">Montana</option>
+                            <option value="nebraska">Nebraska</option>
+                            <option value="nevada">Nevada</option>
+                            <option value="new_hampshire">New Hampshire</option>
+                            <option value="new_jersey">New Jersey</option>
+                            <option value="new_mexico">New Mexico</option>
+                            <option value="new_york">New York</option>
+                            <option value="north_carolina">North Carolina</option>
+                            <option value="north_dakota">North Dakota</option>
+                            <option value="ohio">Ohio</option>
+                            <option value="oklahoma">Oklahoma</option>
+                            <option value="oregon">Oregon</option>
+                            <option value="pennsylvania">Pennsylvania</option>
+                            <option value="rhode_island">Rhode Island</option>
+                            <option value="south_carolina">South Carolina</option>
+                            <option value="south_dakota">South Dakota</option>
+                            <option value="tennessee">Tennessee</option>
+                            <option value="texas">Texas</option>
+                            <option value="utah">Utah</option>
+                            <option value="vermont">Vermont</option>
+                            <option value="virginia">Virginia</option>
+                            <option value="washington">Washington</option>
+                            <option value="west_virginia">West Virginia</option>
+                            <option value="wisconsin">Wisconsin</option>
+                            <option value="wyoming">Wyoming</option>
+                        </optgroup>
+                    </select>
+                </fieldset>
+
+                <fieldset id="step-2__typeface" class="hidden">
+                    <legend>Choose Typeface:</legend>
+
+                    <input type="radio" name="typeface" id="r1" value="garamond">
+                    <label for="r1"> Garamond</label>
+
+                    <input type="radio" name="typeface" id="r2" value="corsiva">
+                    <label for="r2"> Monotype Corsiva</label>
+
+                    <small>NOTE: Selected typeface will be used for all text customization.</small>
+                </fieldset>
+
+                <fieldset id="step-2__custom-text" class="hidden">
+                    <label for="">Enter custom text:</label>
+                    <textarea name="top-text"></textarea>
+                </fieldset>
+
+                <p id="step-2__stock-text" class="hidden"></p>
+
+            </fieldset>
+
+
+            <!--=====[  STEP 3 - Customize Front  ]=====-->
+            <fieldset id="step-3" class="hidden">
+                <img src="https://www.dropbox.com/s/iunuckgktfcq9mw/Ryan%20Exterior.jpg?raw=1" alt="Customize the front of your message box">
+
+                <label for="step-3__select">Customize Front:</label>
+                <select name="front" id="step-3__select">
+                    <option value="_">Please make a selection</option>
+                    <option value="none">No Customization</option>
+                    <option value="icon">Choose Icon</option>
+                    <option value="text">Custom Text</option>
+                    <option value="quote_1">Quote 1</option>
+                    <option value="quote_2">Quote 2</option>
+                    <option value="quote_3">Quote 3</option>
+                    <option value="quote_4">Quote 4</option>
+                    <option value="verse_1">Bible Verse 1</option>
+                    <option value="verse_2">Bible Verse 2</option>
+                    <option value="verse_3">Bible Verse 3</option>
+                    <option value="verse_4">Bible Verse 4</option>
+                </select>
+
+                <fieldset id="step-3__icon" class="hidden">
+                    <img id="step-3__icon-display">
+
+                    <label for="step-3__select-icon">Select an Icon:</label>
+                    <select name="front-icon" id="step-3__select-icon">
+                        <option value="us_flag" selected>US Flag</option>
+                        <option value="silhouette">Silhouette</option>
+                        <optgroup label="US States">
+                            <option value="alabama">Alabama</option>
+                            <option value="alaska">Alaska</option>
+                            <option value="arizona">Arizona</option>
+                            <option value="arkansas">Arkansas</option>
+                            <option value="california">California</option>
+                            <option value="colorado">Colorado</option>
+                            <option value="connecticut">Connecticut</option>
+                            <option value="delaware">Delaware</option>
+                            <option value="florida">Florida</option>
+                            <option value="georgia">Georgia</option>
+                            <option value="hawaii">Hawaii</option>
+                            <option value="idaho">Idaho</option>
+                            <option value="illinois">Illinois</option>
+                            <option value="indiana">Indiana</option>
+                            <option value="iowa">Iowa</option>
+                            <option value="kansas">Kansas</option>
+                            <option value="kentucky">Kentucky</option>
+                            <option value="louisiana">Louisiana</option>
+                            <option value="maine">Maine</option>
+                            <option value="maryland">Maryland</option>
+                            <option value="massachusetts">Massachusetts</option>
+                            <option value="michigan">Michigan</option>
+                            <option value="minnesota">Minnesota</option>
+                            <option value="mississippi">Mississippi</option>
+                            <option value="missouri">Missouri</option>
+                            <option value="montana">Montana</option>
+                            <option value="nebraska">Nebraska</option>
+                            <option value="nevada">Nevada</option>
+                            <option value="new_hampshire">New Hampshire</option>
+                            <option value="new_jersey">New Jersey</option>
+                            <option value="new_mexico">New Mexico</option>
+                            <option value="new_york">New York</option>
+                            <option value="north_carolina">North Carolina</option>
+                            <option value="north_dakota">North Dakota</option>
+                            <option value="ohio">Ohio</option>
+                            <option value="oklahoma">Oklahoma</option>
+                            <option value="oregon">Oregon</option>
+                            <option value="pennsylvania">Pennsylvania</option>
+                            <option value="rhode_island">Rhode Island</option>
+                            <option value="south_carolina">South Carolina</option>
+                            <option value="south_dakota">South Dakota</option>
+                            <option value="tennessee">Tennessee</option>
+                            <option value="texas">Texas</option>
+                            <option value="utah">Utah</option>
+                            <option value="vermont">Vermont</option>
+                            <option value="virginia">Virginia</option>
+                            <option value="washington">Washington</option>
+                            <option value="west_virginia">West Virginia</option>
+                            <option value="wisconsin">Wisconsin</option>
+                            <option value="wyoming">Wyoming</option>
+                        </optgroup>
+                    </select>
+                </fieldset>
+
+                <fieldset id="step-3__typeface" class="hidden">
+                    <legend>Choose Typeface:</legend>
+
+                    <input type="radio" name="typeface" id="r3" value="garamond">
+                    <label for="r3"> Garamond</label>
+
+                    <input type="radio" name="typeface" id="r4" value="corsiva">
+                    <label for="r4"> Monotype Corsiva</label>
+
+                    <small>NOTE: Selected typeface will be used for all text customization.</small>
+                </fieldset>
+
+                <fieldset id="step-3__custom-text" class="hidden">
+                    <label>Enter custom text:</label>
+                    <textarea name="front-text"></textarea>
+                </fieldset>
+
+                <p id="step-3__stock-text" class="hidden"></p>
+
+            </fieldset>
+
+
+            <!--=====[  STEP 4 - Customize Lid  ]=====-->
+            <fieldset id="step-4" class="hidden">
+                <img src="https://www.dropbox.com/s/yomww1qxo96mb8a/Wedding%20interior.jpg?raw=1" alt="Customize the lid of your message box">
+
+                <label for="step-4__select">Customize Lid:</label>
+                <select name="lid" id="step-4__select">
+                    <option value="_">Please make a selection</option>
+                    <option value="none">No Customization</option>
+                    <option value="text">Custom Text</option>
+                    <option value="image">Upload Image</option>
+                </select>
+
+                <fieldset id="step-4__typeface" class="hidden">
+                    <legend>Choose Typeface:</legend>
+
+                    <input type="radio" name="typeface" id="r5" value="garamond">
+                    <label for="r5"> Garamond</label>
+
+                    <input type="radio" name="typeface" id="r6" value="corsiva">
+                    <label for="r6"> Monotype Corsiva</label>
+
+                    <small>NOTE: Selected typeface will be used for all text customization.</small>
+                </fieldset>
+
+                <fieldset id="step-4__custom-text" class="hidden">
+                    <label>Enter custom text:</label>
+                    <textarea name="lid-text"></textarea>
+                </fieldset>
+
+                <fieldset id="step-4__upload-image" class="hidden">
+                    <label>Upload Image:</label>
+                    <input type="file">
+                </fieldset>
+            </fieldset>
+
+
+            <!--=====[  STEP 5 - Customize Gift  ]=====-->
+            <fieldset id="step-5" class="hidden">
+                <img id="step-5__image">
+
+                <label for="step-5__select">Gift:</label>
+                <select name="gift" id="step-5__select">
+                    <option value="_">Please make a selection</option>
+                    <option value="none">No Gift</option>
+                    <option value="text">Leather Coaster</option>
+                    <option value="icon">Jack Daniel's&trade; Fudge</option>
+                    <option value="image">Handcrafted Chocolates</option>
+                </select>
+
+
+                <!-- all this below is for leather coaster option -->
+                <fieldset id="step-5__typeface" class="hidden">
+                    <legend>Choose Typeface:</legend>
+
+                    <input type="radio" name="typeface" id="r7" value="garamond">
+                    <label for="r7"> Garamond</label>
+
+                    <input type="radio" name="typeface" id="r8" value="corsiva">
+                    <label for="r8"> Monotype Corsiva</label>
+
+                    <small>NOTE: Selected typeface will be used for all text customization.</small>
+                </fieldset>
+
+                <fieldset id="step-5__custom-text" class="hidden">
+                    <label>Enter custom text:</label>
+                    <textarea name="coaster-text"></textarea>
+                </fieldset>
+
+                <p id="step-5__stock-text" class="hidden"></p>
+
+                <fieldset id="step-5__upload-icon" class="hidden">
+                    <label>Icon File:</label>
+                    <input type="file">
+                </fieldset>
+
+                <fieldset id="step-5__upload-image" class="hidden">
+                    <label>Image File:</label>
+                    <input type="file">
+                </fieldset>
+            </fieldset>
+
+        </form>
+
+        <div id="progress-buttons">
+            <button id="previous" class="hidden">Previous</button>
+            <button id="next" class="">Next</button>
+            <button id="add-cart" class="hidden">Add to Cart</button>
+        </div>
+
+    </div>
+
+
 
 
     <!-- For file upload
     <label class="input-label">Image File:</label>
     <input type="file" id="imageLoader" name="imageLoader">
-    
+
     <canvas id="imageCanvas"></canvas> -->
 
-    <script src="js/main.js"></script>
 </body>
+<footer>
+    <h2>Musser &amp; Company Enterprises, LLC DBA Southern Favor</h2>
+    <img id="mailIcon" src="./img/email.png" />
+    <img id="instaIcon" src="./img/insta.png" />
+    <img id="facebookIcon" src="./img/facebook.png" />
+    <img id="twitterIcon" src="./img/twitter.png" />
+</footer>
 </html>

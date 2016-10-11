@@ -21,6 +21,7 @@
   "homepage": "https://github.com/wheatbrad/sf-product-customizer#readme",
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
+    "firebase": "^3.4.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-browser": "^3.0.2",

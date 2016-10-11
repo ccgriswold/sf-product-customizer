@@ -11,27 +11,27 @@ module.exports = {
     box: {
         ammo: {
             name: 'Ammo Box',
-            image: "{{ 'ammo.jpg' | asset_url }}",
+            image: "{{ 'ammo.jpg' |  https://www.dropbox.com/s/tj601wqf4sq2n5d/Dad%20Son%20Fishing%20exterior.jpg?raw=1 }}",
             price: 109.99,
-            desc: 'Ammo Box description goes here'
+            desc: 'Beautiful wooden box with rails rails on the front, top, and back.'
         },
         artillery: {
             name: 'Artillery Box',
-            image: "{{ 'artillery.jpg' | asset_url }}",
+            image: "{{ 'artillery.jpg' | https://www.dropbox.com/s/n2miqlaj1ftyp5v/Southern%20Favor%20Exterior.jpg?raw=1 }}",
             price: 119.99,
-            desc: 'Artillery Box description goes here'
+            desc: 'Beautiful wooden box with hand crafted leather straps extending from the backside to the front side. '
         },
         traditional: {
-            name: 'Traditional Box',
-            image: "{{ 'traditional.jpg' | asset_url }}",
+            name: 'BuckShot Box',
+            image: "{{ 'traditional.jpg' | https://www.dropbox.com/s/iunuckgktfcq9mw/Ryan%20Exterior.jpg?raw=1 }}",
             price: 115.99,
-            desc: 'Traditional Box description goes here'
+            desc: 'Classic traditional style wooden box with a smooth natural finish. '
         },
         letter: {
             name: 'Letter Box',
-            image: "{{ 'letter.jpg' | asset_url }}",
+            image: "{{ 'letter.jpg' | https://www.dropbox.com/s/g28303byzvomgd7/Daddy%20Letter%20box%20exterior.jpg?raw=1 }}",
             price: 95.99,
-            desc: 'Letter Box description goes here'
+            desc: 'Low profile wooden box. Perfect for housing letters and other precious paper'
         },
     },
 
@@ -51,7 +51,7 @@ module.exports = {
             this.boxSelection.value = 'ammo';
         } else {
             this.displaySelectedBox(boxOption);
-        }  
+        }
     }
-    
+
 };

@@ -1,3 +1,5 @@
+/* npm install --save-dev gulp gulp-htmlmin gulp-sass gulp-browser gulp-babel pump gulp-uglify */
+/* jshint esnext: true, browser: true */
 
 const gulp         = require('gulp'),
       htmlmin      = require('gulp-htmlmin'),
@@ -10,7 +12,7 @@ const gulp         = require('gulp'),
 
 gulp.task('html', function () {
     return gulp.src('./index.html')
-    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+    // .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
     .pipe(gulp.dest('../public/'));
 });
 
@@ -27,7 +29,7 @@ gulp.task('js', function (e) {
         gulp.src('./js/main.js'),
         gulpBrowser.browserify(),
         babel({ presets: ['es2015'] }),
-        uglify(),
+        // uglify(),
         gulp.dest('../public/js/')
     ], e);
 });
