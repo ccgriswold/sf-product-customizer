@@ -6,6 +6,7 @@ body {
     -webkit-font-smoothing: antialiased;
     // -moz-osx-font-smoothing: grayscale;
     margin: auto;
+    color: rgb(76,76,76);
     header{
         padding-top:0;
         margin-top:0;
@@ -148,13 +149,16 @@ body {
                 // height: 5vh;
             }
             button{
-                background-color: rgb(94, 58, 4);
+                background-color: rgb(65, 55, 49);
                 border-radius: 10px;
                 width: 50%;
-                font-size: 1.6vw;
                 margin-left: 25%;
                 margin-right: 50%;
                 margin-top: 5%;
+                a{
+                    font-size: 1.6vw;
+                    color: white;
+                }
             }
         }
         #boxBox{
@@ -162,6 +166,27 @@ body {
             margin-bottom: 5%;
         }
     }
+
+
+//Our Story Section
+
+#storySection{
+    #storyside{
+        width: 50%;
+        h2{
+            text-transform: uppercase;
+            color: white;
+            text-align: left;
+            margin-left: 2%;
+            font-size: 2vw;
+        }
+    }
+}
+
+
+
+
+
 
     #boxCustom{
         margin-left: 3%;
@@ -200,6 +225,7 @@ body {
 
 footer{
     display:inline-block;
+    background-color: rgb(41, 35, 34);
     h2{
         text-align: left;
         width: 75%;

@@ -28,12 +28,11 @@
 
     <!-- Top Hello Section -->
     <div class="backgroundVid">
-        <!-- <video></video> -->
-        <!--
-        <video loop muted autoplay poster = "https://www.dropbox.com/s/afy8xihq6h0y785/Highlight30sec.mp4?raw=1">
-            <source src="https://www.dropbox.com/s/afy8xihq6h0y785/Highlight30sec.mp4?raw=1" />
+
+        <video loop muted autoplay poster = "Assets/Highlight30sec.reduced.30.mp4">
+            <source src="Assets/Highlight30sec.reduced.30.mp4" />
         </video>
-        -->
+
     </div>
     <div id="helloSection">
         <h2>Designed by You - and Your Memories</h2>
@@ -49,28 +48,73 @@
         <div id="boxBox">
             <div class="boxOptions" ><a href="#boxPurchase">
                 <h3>Artillery Box</h3>
-                <!--<img class="boxImage" src="https://www.dropbox.com/s/n2miqlaj1ftyp5v/Southern%20Favor%20Exterior.jpg?raw=1" />-->
+                <img class="boxImage" src="Assets/SouthernFavorExterior.png" />
                 <p>Beautiful wooden box with hand crafted leather straps extending from the backside to the front side.</p>
                 <button class="boxButton"><a href="boxPurchase">Order</a></button>
             </a></div>
             <div class="boxOptions"><a href="#boxPurchase">
                 <h3>Ammo Box</h3>
-                <!--<img class="boxImage" src="https://www.dropbox.com/s/tj601wqf4sq2n5d/Dad%20Son%20Fishing%20exterior.jpg?raw=1" />-->
+                <img class="boxImage" src="Assets/DadSonFishingexterior.png" />
                 <p>Beautiful wooden box with rails rails on the front, top, and back.</p>
                 <button class="boxButton"><a href="boxPurchase">Order</a></button>
             </a></div>
             <div class="boxOptions"><a href="#boxPurchase">
                 <h3>BuckShot Box</h3>
-                <!--<img class="boxImage" src="https://www.dropbox.com/s/iunuckgktfcq9mw/Ryan%20Exterior.jpg?raw=1" />-->
+                <img class="boxImage" src="Assets/RyanExterior.png" />
                 <p>Classic traditional style wooden box with a smooth natural finish.</p>
                 <button class="boxButton"><a href="boxPurchase">Order</a></button>
             </a></div>
             <div class="boxOptions"><a href="#boxPurchase">
                 <h3>Letter Box</h3>
-                <!--<img class="boxImage" src="https://www.dropbox.com/s/g28303byzvomgd7/Daddy%20Letter%20box%20exterior.jpg?raw=1" />-->
+                <img class="boxImage" src="Assets/DaddyLetterboxexterior.png" />
                 <p>Low profile wooden box. Perfect for housing letters and other precious paper.</p>
                 <button class="boxButton"><a href="boxPurchase">Order</a></button>
             </a></div>
+        </div>
+    </div>
+
+    <!-- Story Section -->
+    <div id="storySection">
+        <div id="storySide">
+            <h2>Our Story</h2>
+            <iframe src="https://player.vimeo.com/video/187056200" frameborder="1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <!-- <p><a href="https://vimeo.com/187056200">KickstarterFinalCut.reduced</a> from <a href="https://vimeo.com/user40645885">Caleb Musser</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+        </div>
+        <div id="teamSide">
+            <h2>Our Team</h2>
+            <div id="teamCircles">
+                <div class="teammate">
+                    <img class="teammateIcon" src="Assets/CalebLaserPic1.png"/>
+                    <h4>Caleb</h4>
+                    <h5>Head Honcho</h5>
+                    <p>
+                        Despite asking the prom queen out in high school and being rejected (twice), Caleb's shoot-for-the-moon mentality now keeps Southern Favor rolling like the Stones. Words like "can't" and "impossible" are mere yellow lights for SF's fearless leader.
+                    </p>
+                </div>
+                <div class="teammate">
+                    <img class="teammateIcon" src="Assets/RyanLaserPic.png"/>
+                    <h4>Ryan</h4>
+                    <p>Your title</p>
+                </div>
+                <div class="teammate">
+                    <img class="teammateIcon" src="Assets/DerekLaserPic.png"/>
+                    <h4>Derek</h4>
+                    <h5>Your title</h5>
+                    <p>
+                        Derek's primary responsibilities include managing production processes and order fulfillment - while doubling as a (slightly) more productive Musser-version of Uncle Si (minus the beard).
+                    </p>
+                </div>
+                <div class="teammate">
+                    <img class="teammateIcon" src="Assets/DadLaserPic.png"/>
+                    <h4>Scott</h4>
+                    <p>Your title</p>
+                </div>
+                <div class="teammate">
+                    <img class="teammateIcon" src="Assets/AsherLaserEngraved.png"/>
+                    <h4>Pup</h4>
+                    <p>Your title</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -111,13 +155,13 @@
                     <h3>Price: $<span id="step-1__price"></span></h3>
 
                     <p id="step-1__desc"></p>
-                    
+
                 </div>
             </fieldset>
 
             <!--=====[  STEP 2 - Customize Top  ]=====-->
             <fieldset id="step-2" class="hidden">
-                <img src="https://www.dropbox.com/s/n2miqlaj1ftyp5v/Southern%20Favor%20Exterior.jpg?raw=1" alt="Customize the top of your message box">
+                <img src="Assets/SouthernFavorExterior.png" alt="Customize the top of your message box">
 
                 <label for="step-2__select">Customize Top:</label>
                 <select name="top" id="step-2__select">
@@ -221,7 +265,7 @@
 
             <!--=====[  STEP 3 - Customize Front  ]=====-->
             <fieldset id="step-3" class="hidden">
-                <img src="https://www.dropbox.com/s/iunuckgktfcq9mw/Ryan%20Exterior.jpg?raw=1" alt="Customize the front of your message box">
+                <img src="Assets/RyanExterior.png" alt="Customize the front of your message box">
 
                 <label for="step-3__select">Customize Front:</label>
                 <select name="front" id="step-3__select">
@@ -325,7 +369,7 @@
 
             <!--=====[  STEP 4 - Customize Lid  ]=====-->
             <fieldset id="step-4" class="hidden">
-                <img src="https://www.dropbox.com/s/yomww1qxo96mb8a/Wedding%20interior.jpg?raw=1" alt="Customize the lid of your message box">
+                <img src="Assets/Weddinginterior.png" alt="Customize the lid of your message box">
 
                 <label for="step-4__select">Customize Lid:</label>
                 <select name="lid" id="step-4__select">
@@ -425,10 +469,13 @@
 </body>
 <footer>
     <h2>Musser &amp; Company Enterprises, LLC DBA Southern Favor</h2>
-    <img id="mailIcon" src="./img/email.png" />
-    <img id="instaIcon" src="./img/insta.png" />
-    <img id="facebookIcon" src="./img/facebook.png" />
-    <img id="twitterIcon" src="./img/twitter.png" />
+    <div id="rightSideFoot">
+        <a id="contactUs"><h3>Contact Us</h3></a>
+        <!-- <img id="mailIcon" src="./img/email.png" /> -->
+        <!-- <img id="instaIcon" src="./img/insta.png" /> -->
+        <img id="facebookIcon" src="./Assets/facebookicon.png" />
+        <!-- <img id="twitterIcon" src="./img/twitter.png" /> -->
+    </div>
 </footer>
 
 <script src="js/main.js"></script>
