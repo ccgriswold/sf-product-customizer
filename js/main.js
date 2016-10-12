@@ -17,6 +17,9 @@
     // console.log(oldURL);
 
 window.addEventListener('load', function () {
+    console.log('wut');
+    const findBox = require('./boxes');
+
     // import modules
     const step1 = require('./step1');
     const step2 = require('./step2');
@@ -27,9 +30,10 @@ window.addEventListener('load', function () {
     const toggle = require('./toggle');
     const displayIcon = require('./displayIcon');
 
+    let box = findBox(); // start off defaulting to 'ammo'
 
     // set defaults for specified select elements
-    step1.displaySelectedBox('ammo');
+    step1.render(box);
     displayIcon('us_flag', step2.topIconDisplay);
     displayIcon('us_flag', step3.frontIconDisplay);
 
@@ -53,6 +57,7 @@ window.addEventListener('load', function () {
     const nextBtn = document.getElementById('next');
     const previousBtn = document.getElementById('previous');
     const addToCartBtn = document.getElementById('add-cart');
+    const topText = document.getElementById('top-text');
 
     // controller keeps track of user progress and user interface presentation through the customization proccess
     const controller = function () {
@@ -109,29 +114,29 @@ window.addEventListener('load', function () {
         };
     }();
 
-
-
     // event listener for step 1 select dropdown
-    section1.addEventListener('change', function (e) {
-        step1.getSelectedBox();
-        e.stopPropagation();
-    }, false);
+    document.querySelector('#step-1__select').addEventListener('change', e => {
+        // Get the selected box and then re-render step 1.
+        box = findBox(e.target.value);
+        step1.render(box);
+    });
 
+    // event listener for step 2 select dropdown element and corresponding form elements
+    document.querySelector('#step-2__select').addEventListener('change', e => {
+        step2.render(box, { mode: e.target.value });
+    });
 
-    // event listener for step 2 select dropdown elements
-    section2.addEventListener('change', function (e) {
-        let icon = step2.topIconSelection.options[step2.topIconSelection.selectedIndex].value;
+    document.querySelector('#step-2__select-icon').addEventListener('change', e => {
+        step2.render(box, { mode: 'icon', target: e.target.options[e.target.selectedIndex].value });
+        // Update the box.
+        box.customize('image', e.target.options[e.target.selectedIndex].value);
+    });
 
-        if (e.target === step2.topSelection) {
-            step2.getTopSelection();
-        }
-        else if (e.target === step2.topIconSelection) {
-            displayIcon(icon, step2.topIconDisplay);
-        }
+    document.querySelectorAll('input[name=typeface]').forEach(radio => {
+        radio.addEventListener('click', () => box.customize('font', radio.value));
+    });
 
-        e.stopPropagation();
-    }, false);
-
+    topText.addEventListener('keyup', () => box.customize('text', topText.value));
 
     // event listener for step 3 select dropdown elements
     section3.addEventListener('change', function (e) {
@@ -167,9 +172,6 @@ window.addEventListener('load', function () {
     section5.addEventListener('change', function (e) {
         // code for step 5 select elements
     }, false);
-
-
-
 
     const progressBtns = document.getElementById('progress-buttons');
 
