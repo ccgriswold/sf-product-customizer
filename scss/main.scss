@@ -17,6 +17,11 @@ body {
         width: 100%;
         position:absolute;
         z-index: 2;
+        #headerLogo {
+            width: 10rem;
+            float: left;
+            margin: 1rem 0 0 1rem;
+        }
         #headerName{
             text-align: left;
             width: 30%;
