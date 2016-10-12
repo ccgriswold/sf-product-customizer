@@ -38,6 +38,9 @@ const boxes = {
 };
 
 function reset(box) {
+    // Copy the box so we never actually dirty the original.
+    box = Object.assign({}, box);
+    
     box.custom = {
         content: null, // either 'text' or 'image'
         font: null,
@@ -56,10 +59,11 @@ function reset(box) {
 /**
  * Returns the specified box, or 'ammo' if the specified box doesn't exist.
  */
-module.exports = function (name) {
-    if (boxes.hasOwnProperty(name)) {
-        return reset(boxes[name]);
-    } else {
-        return reset(boxes.ammo);
-    }
+module.exports = {
+    find(name) {
+        return (boxes.hasOwnProperty(name)) ? reset(boxes[name]) : reset(boxes.ammo);
+    },
+    all() {
+        return boxes.map(reset);
+    },
 };
