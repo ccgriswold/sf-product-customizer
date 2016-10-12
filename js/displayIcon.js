@@ -244,9 +244,5 @@ module.exports = function (selectedIcon, preview) {
             name: 'Wyoming',
             image: "{{ 'wyoming.jpg' | asset_url }}"
         },
-
     };
-
-    preview.src = icons[selectedIcon].image;
-    preview.alt = icons[selectedIcon].name;
 };
