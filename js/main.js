@@ -18,7 +18,7 @@
 
 window.addEventListener('load', function () {
     console.log('wut');
-    const findBox = require('./boxes');
+    const boxes = require('./boxes');
 
     // import modules
     const step1 = require('./step1');
@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
     const toggle = require('./toggle');
     const displayIcon = require('./displayIcon');
 
-    let box = findBox(); // start off defaulting to 'ammo'
+    let box = boxes.find(); // start off defaulting to 'ammo'
 
     // set defaults for specified select elements
     step1.render(box);
@@ -117,7 +117,7 @@ window.addEventListener('load', function () {
     // event listener for step 1 select dropdown
     document.querySelector('#step-1__select').addEventListener('change', e => {
         // Get the selected box and then re-render step 1.
-        box = findBox(e.target.value);
+        box = boxes.find(e.target.value);
         step1.render(box);
     });
 
