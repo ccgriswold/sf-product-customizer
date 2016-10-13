@@ -173,16 +173,22 @@ body {
 //Our Story Section
 
 #storySection{
-    background-image: url("Assets/our-story--org.jpg");
+    background-image: url("../Assets/our-story--org.jpg");
+    background-repeat: no-repeat;
+    color: white;
     #storyside{
-        width: 50%;
-        display: block;
+        // width: 50%;
+        display: inline-block;
         h2{
             text-transform: uppercase;
             color: white;
             text-align: left;
             margin-left: 2%;
             font-size: 2vw;
+        }
+        iframe{
+            width: 100vw;
+            height: auto;
         }
     }
 }
@@ -228,14 +234,36 @@ body {
 }
 
 footer{
-    display:inline-block;
     background-color: rgb(41, 35, 34);
+    width: 100%;
+    color: white;
     h2{
+        display:inline-block;
         text-align: left;
-        width: 75%;
+        width: 50%;
+        font-size: 1.25vw;
+        margin-top: 1%;
+        margin-left: 2.5%;
     }
-    img{
-        width:3vw;
+    #rightSideFoot{
+        display: inline-block;
+        margin-right: 2.5%;
+        text-align: left;
+        float: right;
+        width: 12%;
+        h3{
+            font-size: 1.25vw;
+            float: left;
+            margin: 0;
+            padding-top: 8%;
+        }
+        img{
+            width: 2vw;
+            float: right;
+            margin-left: 1%;
+            margin-top: 4%;
+
+        }
     }
 }
 
