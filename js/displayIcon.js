@@ -21,7 +21,7 @@ module.exports = function (selectedIcon, preview) {
         },
         lure: {
             name: 'Lure',
-            image: "https://www.dropbox.com/s/pdgq5vuhk2rb5js/Lure.png?raw=1"
+            image: "{{'Lure.png' | "
         },
         thorn_cross: {
             name: 'Thorn Cross',
@@ -29,19 +29,19 @@ module.exports = function (selectedIcon, preview) {
         },
         sc_palm_tree: {
             name: 'SC Palm Tree',
-            image: "https://www.dropbox.com/s/ehmdprjy055qtqr/SC%20Palm%20Tree.png?raw=1"
+            image: "{{ 'SCPalmTree.png' | asset_url }}"
         },
         fish_icon: {
             name: 'Fish Icon',
-            image: "https://www.dropbox.com/s/6v99jvgjljobrxb/fishing.jpg?raw=1"
+            image: "{{ 'Fishicon.png' | asset_url }}"
         },
         daughter_dad_icon: {
             name: 'Father/Daughter Icon',
-            image: "https://www.dropbox.com/s/pdxuc9lkvk8w1k4/Daddy%20Daughter%20Icon.gif?raw=1"
+            image: "{{ 'DaddyDaughterIcon.png' | asset_url }}"
         },
         son_dad_fishing_icon: {
             name: 'Father/Son Fishing',
-            image: "https://www.dropbox.com/s/6v99jvgjljobrxb/fishing.jpg?raw=1"
+            image: "{{ 'fishing.png' | asset_url }}"
         },
         silhouette: {
             name: 'Silhouette',
@@ -50,7 +50,7 @@ module.exports = function (selectedIcon, preview) {
 
         alabama: {
             name: 'Alabama',
-            image: "{{ 'alabama.jpg' | asset_url }}"
+            image: "{{ 'IconExample-StateOutline.png' | asset_url }}"
         },
         alaska: {
             name: 'Alaska',
