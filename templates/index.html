@@ -1,0 +1,106 @@
+<section id="page-index">
+	<!-- Top Hello Section -->
+	<div class="backgroundVid">
+		<video loop muted autoplay poster="Assets/Highlight30sec.reduced.30.mp4">
+			<source src="Assets/Highlight30sec.reduced.30.mp4" />
+		</video>
+
+	</div>
+	<div id="helloSection">
+		<h2>Designed by You - and Your Memories</h2>
+		<p>Give the gift that they can't buy for themselves.</p>
+		<p>The Southern Favor Message Box.</p>
+		<button><a href="#boxPurchase">Design Your Box &#9654;</a></button>
+	</div>
+
+	<!-- Products -->
+	<div id="productSection">
+		<h2>Our Products</h2>
+		<p>Below is a list of our current box offerings. Each box is fully customizable with engravings on the top, front, and inside
+			lid with note and gift options.</p>
+		<div id="boxBox">
+			{% for product in collections.Frontpage.products %}
+			<div class="boxOptions">
+				<h3>{{ product.title }}</h3>
+				<img class="boxImage" src="{{ product.images[0].src | product_img_url: 'medium' }}" />
+				<p>{{ product.description }}</p>
+				<button class="boxButton"><a href="#boxPurchase">Order</a></button>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<!-- Story Section -->
+	<div id="storySection">
+		<div id="storySide">
+			<h2>Our Story</h2>
+			<iframe src="https://player.vimeo.com/video/187056200" frameborder="1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<!-- <p><a href="https://vimeo.com/187056200">KickstarterFinalCut.reduced</a> from <a href="https://vimeo.com/user40645885">Caleb Musser</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+		</div>
+		<div id="teamSide">
+			<h2>Our Team</h2>
+			<div id="teamCircles">
+				<div class="teammate">
+					<img class="teammateIcon" src="Assets/CalebLaserPic1.png" />
+					<h4>Caleb</h4>
+					<h5>Head Honcho</h5>
+					<p>
+						Despite asking the prom queen out in high school and being rejected (twice), Caleb's shoot-for-the-moon mentality now keeps
+						Southern Favor rolling like the Stones. Words like "can't" and "impossible" are mere yellow lights for SF's fearless
+						leader.
+					</p>
+				</div>
+				<div class="teammate">
+					<img class="teammateIcon" src="Assets/RyanLaserPic.png" />
+					<h4>Ryan</h4>
+					<p>Your title</p>
+				</div>
+				<div class="teammate">
+					<img class="teammateIcon" src="Assets/DerekLaserPic.png" />
+					<h4>Derek</h4>
+					<h5>Your title</h5>
+					<p>
+						Derek's primary responsibilities include managing production processes and order fulfillment - while doubling as a (slightly)
+						more productive Musser-version of Uncle Si (minus the beard).
+					</p>
+				</div>
+				<div class="teammate">
+					<img class="teammateIcon" src="Assets/DadLaserPic.png" />
+					<h4>Scott</h4>
+					<p>Your title</p>
+				</div>
+				<div class="teammate">
+					<img class="teammateIcon" src="Assets/AsherLaserEngraved.png" />
+					<h4>Pup</h4>
+					<p>Your title</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- box customization -->
+	<div id="boxCustom">
+		<h2>Customize Your Message Box</h2>
+		<p>Give your box a custom flair with text or an image on the top, front, and inside of your box.</p>
+
+		<div id="boxPurchase">
+			<select id="selectProduct">
+          {% for product in collections.Frontpage.products %}
+          <option value="{{ product.handle }}">{{ product.title }}</option>
+          {% endfor %}
+        </select>
+		</div>
+
+		{% for product in collections.Frontpage.products %}
+		<section id="product-{{ product.handle }}" class="details hidden">
+			<h2>{{ product.title }}</h2>
+			<img src="{{ product.images[0].src | product_img_url: 'medium' }}" />
+			<div>
+				<p>Price: ${{ product.price }}</p>
+				<p>{{ product.description }}</p>
+				<button onclick="window.location='/products/{{ product.handle }}'">Customize</button>
+			</div>
+		</section>
+		{% endfor %}
+	</div>
+</section>

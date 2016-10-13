@@ -1,0 +1,52 @@
+/* Styles that affect all headers */
+
+header{
+        padding-top:0;
+        margin-top:0;
+        background-color: rgb(0, 0, 0);
+        opacity: 0.6;
+        color: white;
+        text-transform: uppercase;
+        width: 100%;
+        position:absolute;
+        z-index: 2;
+
+        #headerLogo {
+            width: 10rem;
+            float: left;
+            margin: 1rem 0 0 1rem;
+        }
+
+        #headerName {
+            text-align: left;
+            width: 30%;
+            font-size: 2.5vw;
+            display: inline-block;
+            margin-left: 2vw;
+            strong{
+                font-style:oblique;
+                display: block;
+                font-size: 4vw;
+            }
+        }
+
+        ul {
+            text-decoration: none;
+            list-style: none;
+            float:right;
+            margin: 3vw;
+            padding-top: 1.8vw;
+            font-size: 1.5vw;
+            a{
+                text-decoration: none;
+                display:inline-block;
+                padding-right: 2vw;
+            }
+            a:hover{
+                color: rgb(244, 237, 175);
+            }
+            a:visited{
+                color:white;
+            }
+        }
+    }
