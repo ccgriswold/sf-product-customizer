@@ -1,3 +1,15 @@
+/**
+ * One file to rule them all. Pulls in all of the other style files.
+ *
+ * Variables that span across all files should be defined here but not much else.
+ */
+
+@import 'theme/full';
+@import 'theme/header';
+@import 'theme/footer';
+
+@import 'pages/index';
+@import 'pages/product';
 
 html {
 box-sizing: border-box;

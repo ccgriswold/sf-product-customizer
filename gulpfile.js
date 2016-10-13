@@ -50,10 +50,12 @@ gulp.task('default', [ 'html', 'sass', 'js', 'img' ]);
 gulp.task('watch', function () {
     gulp.watch('./*html', ['html']);
     gulp.watch('./scss/*.scss', ['sass']);
+    gulp.watch('./scss/*/*.scss', ['sass']);
     gulp.watch('./js/*.js', ['js']);
 });
 
 // call exclusively to compile scss without full build
 gulp.task('sass:watch', function () {
     gulp.watch('./scss/*.scss', ['sass']);
+    gulp.watch('./scss/*/*.scss', ['sass']);
 });
