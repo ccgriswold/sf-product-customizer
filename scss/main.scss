@@ -40,6 +40,7 @@ body {
             float:right;
             margin: 3vw;
             padding-top: 1.8vw;
+            font-size: 1.5vw;
             a{
                 text-decoration: none;
                 display:inline-block;
@@ -79,17 +80,17 @@ body {
         z-index: 2;
         color: white;
         h2{
-            font-size: 3vw;
+            font-size: 3.5vw;
         }
         p{
             font-style: italic;
-            font-size: 1.75vw;
+            font-size: 2vw;
         }
         button{
             font-size: 1.60vw;
             background-color: rgb(246, 125, 12);
-            width: 20%;
-            border-radius: 25px;
+            width: 25%;
+            border-radius: 5px;
             border: black;
             padding: 1%;
 
@@ -103,10 +104,8 @@ body {
 
 //Product List Section
     #productSection{
-        width: 95%;
+        width: 93%;
         margin-top: 4%;
-        margin-left: 2%;
-        margin-rigth: 2%;
 
         h2{
             text-align: center;
@@ -123,11 +122,9 @@ body {
         }
         .boxOptions{
             display: inline-block;
-            width: 22.5%;
+            width: 22%;
             margin-left:1%;
             margin-right:1%;
-
-
             a{
                 text-decoration: none;
                 color: black;
@@ -176,14 +173,23 @@ body {
 //Our Story Section
 
 #storySection{
+    background-image: url("../Assets/our-story--org.jpg");
+    background-repeat: no-repeat;
+    color: white;
     #storyside{
-        width: 50%;
+        // width: 50%;
+        display: inline-block;
         h2{
             text-transform: uppercase;
             color: white;
             text-align: left;
             margin-left: 2%;
             font-size: 2vw;
+        }
+        iframe{
+            width: 100vw;
+            height: auto;
+            padding-left: 5%;
         }
     }
 }
@@ -229,14 +235,36 @@ body {
 }
 
 footer{
-    display:inline-block;
     background-color: rgb(41, 35, 34);
+    width: 100%;
+    color: white;
     h2{
+        display:inline-block;
         text-align: left;
-        width: 75%;
+        width: 50%;
+        font-size: 1.25vw;
+        margin-top: 1%;
+        margin-left: 2.5%;
     }
-    img{
-        width:3vw;
+    #rightSideFoot{
+        display: inline-block;
+        margin-right: 2.5%;
+        text-align: left;
+        float: right;
+        width: 12%;
+        h3{
+            font-size: 1.25vw;
+            float: left;
+            margin: 0;
+            padding-top: 8%;
+        }
+        img{
+            width: 2vw;
+            float: right;
+            margin-left: 1%;
+            margin-top: 4%;
+
+        }
     }
 }
 
