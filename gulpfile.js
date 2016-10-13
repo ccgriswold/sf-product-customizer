@@ -36,8 +36,8 @@ gulp.task('js', function (e) {
 
 
 gulp.task('img', function () {
-    return gulp.src('./img/*')
-    .pipe(gulp.dest('../public/img/'));
+    return gulp.src('./Assets/*')
+    .pipe(gulp.dest('../public/Assets/'));
 });
 
 
