@@ -1,0 +1,178 @@
+/* Styles that affect only the front page. */
+
+#page-index {
+    video {
+        width: 100%;
+        background-color: black;
+        margin-bottom: 2.5%;
+
+        source {
+            padding:0;
+            margin-right: 0;
+            margin-left: 0;
+            margin-top: -200vh;
+            min-width:100%;
+            height: 100vh;
+            position: absolute;
+        }
+    }
+
+    // Top Under Header Section
+    #helloSection {
+        display: block;
+        margin-bottom: 15vw;
+        margin-top: -35vw;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        color: white;
+        h2{
+            font-size: 3.5vw;
+        }
+        p{
+            font-style: italic;
+            font-size: 2vw;
+        }
+        button{
+            font-size: 1.60vw;
+            background-color: rgb(246, 125, 12);
+            width: 25%;
+            border-radius: 5px;
+            border: black;
+            padding: 1%;
+
+            a{
+                padding: 3%;
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+
+    //Product List Section
+    #productSection{
+        width: 93%;
+        margin-top: 4%;
+
+        h2{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 3vw;
+        }
+        p{
+            text-align: center;
+            font-size: 1.75vw;
+            height: 4vh;
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-bottom: 2%;
+        }
+        .boxOptions{
+            display: inline-block;
+            width: 22%;
+            margin-left:1%;
+            margin-right:1%;
+            a{
+                text-decoration: none;
+                color: black;
+                display: inline-block;
+            }
+            a:visited{
+                color: black;
+            }
+            h3{
+                font-size: 1.75vw;
+                text-decoration: none;
+                text-align: center;
+            }
+            img{
+                margin: 0;
+                width: 25vw;
+                height: 15.5vw;
+                display: block;
+                width:100%;
+
+            }
+            p{
+                font-size: 1.25vw;
+                // height: 5vh;
+            }
+            button{
+                background-color: rgb(65, 55, 49);
+                border-radius: 10px;
+                width: 50%;
+                margin-left: 25%;
+                margin-right: 50%;
+                margin-top: 5%;
+                a{
+                    font-size: 1.6vw;
+                    color: white;
+                }
+            }
+        }
+        #boxBox{
+            margin-left: 2%;
+            margin-bottom: 5%;
+        }
+    }
+
+
+    //Our Story Section
+    #storySection{
+        background-image: url("../Assets/our-story--org.jpg");
+        background-repeat: no-repeat;
+        color: white;
+    
+        #storyside{
+            // width: 50%;
+            display: inline-block;
+            
+            h2 { 
+                text-transform: uppercase;
+                color: white;
+                text-align: left;
+                margin-left: 2%;
+                font-size: 2vw;
+            }
+        
+            iframe{
+                width: 100vw;
+                height: auto;
+                padding-left: 5%;
+            }
+        }
+    }
+
+    #boxCustom{
+        margin-left: 3%;
+
+        h2{
+            text-align: left;
+            text-transform: uppercase;
+        }
+        p{
+            text-align: left;
+        }
+    }
+
+    #boxPurchase{
+        margin: 3%;
+        img{
+            width: 20vw;
+            display: inline-block;
+        }
+        .boxInfo{
+            display: inline-block;
+            margin-left: 2.5%;
+            label{
+                display: block;
+                text-transform: uppercase;
+            }
+            select{
+                option{
+                    size: 3vw;
+                }
+            }
+        }
+    }
+}

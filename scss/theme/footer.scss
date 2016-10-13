@@ -1,0 +1,35 @@
+/* Styles that affect all footers */
+
+footer{
+    background-color: rgb(41, 35, 34);
+    width: 100%;
+    color: white;
+    h2{
+        display:inline-block;
+        text-align: left;
+        width: 50%;
+        font-size: 1.25vw;
+        margin-top: 1%;
+        margin-left: 2.5%;
+    }
+    #rightSideFoot{
+        display: inline-block;
+        margin-right: 2.5%;
+        text-align: left;
+        float: right;
+        width: 12%;
+        h3{
+            font-size: 1.25vw;
+            float: left;
+            margin: 0;
+            padding-top: 8%;
+        }
+        img{
+            width: 2vw;
+            float: right;
+            margin-left: 1%;
+            margin-top: 4%;
+
+        }
+    }
+}

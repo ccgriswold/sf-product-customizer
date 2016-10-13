@@ -1,0 +1,15 @@
+/* Styles that affect everything */
+
+html {
+    box-sizing: border-box;
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        margin: auto;
+        color: rgb(76,76,76);
+    }
+}
+
+.hidden {
+    display: none;
+}
