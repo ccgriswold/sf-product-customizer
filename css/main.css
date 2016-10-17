@@ -1,0 +1,560 @@
+/**
+ * One file to rule them all. Pulls in all of the other style files.
+ * Files that feed into this are either pages (styles for a particular URL) or theme (styles that span 
+ * multiple URL's).
+ *
+ * Variables that span across all files should be defined here but not much else.
+ */
+/* Styles that affect everything */
+html {
+  box-sizing: border-box; }
+  html body {
+    -webkit-font-smoothing: antialiased;
+    margin: auto;
+    color: #606060;
+    background-color: white; }
+
+.hidden {
+  display: none; }
+.icon-preview {
+   width: 20%;
+   margin: 10px 1%;
+}
+.h2 {
+  color: white;
+}
+#addToCartForm a {
+  text-decoration: underline;
+  color: white;
+  margin: 20px;
+}
+
+/* Styles that affect all headers */
+header {
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 10%;
+  background-color: rgba(0,0,0,.6);
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
+  position: absolute;
+  z-index: 2; }
+  header a #headerLogo {
+    width: 15vw;
+    float: left;
+    margin: 1vw;
+	 }
+  header #headerName {
+    text-align: left;
+    opacity: 1;
+    width: 30%;
+    font-size: 2.5vw;
+    display: inline-block;
+    margin-left: 2vw; }
+/*     header #headerName strong {
+      font-style: oblique;
+      display: block;
+      font-size: 4vw; } */
+  header ul {
+    text-decoration: none;
+    list-style: none;
+    float: right;
+    font-size: 1.5vw; 
+/*     line-height: 125px; */
+    margin: 0;
+    margin-top: 3%;
+  }
+    header ul a {
+      text-decoration: none;
+      display: inline-block;
+      padding-right: 2vw;
+      color: white; }
+    header ul a:hover {
+      color: #f4edaf; }
+    header ul a:visited {
+      color: white; }
+
+/* Styles that affect all footers */
+footer {
+  background-color: #292322;
+  width: 100%;
+  color: white;
+  padding-bottom: 1%;  }
+  footer h2 {
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+    font-size: .75vw;
+    margin-top: 2%;
+    margin-left: 2.5%;
+  	color: white; }
+  footer #rightSideFoot {
+    display: inline-block;
+    margin-right: 2.5%;
+    text-align: left;
+    float: right;
+    width: 12%; }
+    footer #rightSideFoot h3 {
+      font-size: 1vw;
+      float: left;
+      margin: 0;
+      padding-top: 8%;
+      color: white; }
+    footer #rightSideFoot img {
+      width: 1.5vw;
+      float: right;
+      margin-left: 1%;
+      margin-top: 6%;
+       }
+
+/* Stylings for non-front pages */
+main {
+ padding-top: 15%; 
+ 
+}
+
+/* Styles that affect only the front page. */
+#page-index video {
+  width: 100%;
+  background-color: black;
+  margin-bottom: 2.5%;
+  margin-top: -15%;
+  z-index: 1;}
+  #page-index video source {
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: -200vh;
+    min-width: 100%;
+    height: 100vh;
+    position: absolute; }
+
+#page-index #helloSection {
+  display: block;
+  margin-bottom: 15vw;
+  margin-top: -35vw;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: white; }
+  #page-index #helloSection h2 {
+    font-size: 3.5vw;
+  	color: white; }
+  #page-index #helloSection p {
+/*     font-style: italic; */
+    font-size: 2vw; }
+  #page-index #helloSection button {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5vw;
+    background-color: #f67d0c;
+    width: 25%;
+    border-radius: 5px;
+    border: black;
+    padding: 1%;
+  	color: white;
+    font-style: thick; }
+    #page-index #helloSection button a {
+      padding: 3%;
+      text-decoration: none;
+      color: white;
+      font-weight: bold; }
+
+#page-index #productSection {
+  width: 93%;
+  margin-top: 10%;
+  margin-bottom: 5%; }
+  #page-index #productSection h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3vw;
+  	color: #606060; }
+  #page-index #productSection p {
+    text-align: center;
+    color: #606060;
+    font-size: 1.75vw;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  #page-index #productSection .product-description {
+    font-size: 1.2vw; 
+  }
+
+  #page-index #productSection #boxBox {
+    margin-left: 7.5%;
+    margin-bottom: 2.5%;
+  }
+  #page-index #productSection #boxBox .boxOptions {
+    text-align: center;
+    vertical-align: top;
+    display: inline-block; 
+    width: 20%;
+    margin-left: 1.5%;
+    margin-right: 1%;
+    margin-top: 5%; }
+    #page-index #productSection #boxBox .boxOptions a {
+      text-decoration: none;
+      color: black;
+      display: inline-block; }
+    #page-index #productSection #boxBox .boxOptions a:visited {
+      color: #606060;; }
+    #page-index #productSection #boxBox .boxOptions h3 {
+      font-size: 1.75vw;
+      text-decoration: none;
+      text-align: center;
+      margin-bottom: 5%;
+      color: #606060;}
+    #page-index #productSection #boxBox .boxOptions img {
+      margin: 0;
+      width: 25vw;
+      height: 15.5vw;
+      display: block;
+      width: 100%;
+      margin-bottom: 5%; }
+    #page-index #productSection #boxBox .boxOptions p {
+      font-size: 1.25vw;
+      color: #606060; }
+    #page-index #productSection #boxBox .boxOptions .boxButton {
+      background-color: #463c37;
+      color: white;
+      border-radius: 10px;
+      width: 50%;
+      border: black;
+      padding: 2%;
+      display: block;
+      margin: 20px auto;
+      }
+    #page-index #productSection #boxBox .boxOptions .boxButton h8{
+      font-weight: bold; 
+    }
+      #page-index #productSection #boxBox .boxOptions .boxButton a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.25vw;
+        color: white;
+      }
+    #page-index #productSection #boxBox .boxOptions .dimensions {
+      font-size: 1.25vw;
+    }
+
+#page-index #storySection {
+  background-image: url("{{ 'our-story--org.jpg' | asset_url }} ");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+  width: 100%;
+  color: white;
+  padding-top: 2%;
+  padding-bottom: 5%; }
+  #page-index #storySection #storySide {
+    margin: auto;
+/*     float: left; */
+    margin-right: 20%;
+    margin-bottom: 20%; }
+    #page-index #storySection #storySide h2 {
+      text-transform: uppercase;
+      color: white;
+      text-align: left;
+      margin-left: 5%;
+      width: 100%;
+      font-size: 3vw;
+      color: white; }
+    #page-index #storySection #storySide iframe {
+      margin-left: 5%;
+      width: 44vw;
+      height: 25vw;
+      margin-bottom: 20%; 
+      }
+  #page-index #storySection #teamSide {
+    text-align: center;
+  	float: right; }
+	#page-index #storySection #teamSide h2 {
+     text-transform: uppercase;
+     color: white;
+     text-align: center;
+     margin-right: 5%;
+     margin-top: -12%;
+     margin-left: 3%; 
+/*      padding-bottom: 5%; */
+
+     font-size: 3vw;
+    }
+	#page-index #storySection #teamSide #teamCircles {
+      float: right; 
+    }
+	#player{
+      width: 100%; 
+      height: auto;
+    }
+	#page-index #storySection #teamSide #teamCircles .teammate {
+     display: inline-block;
+     width: 30%; 
+     margin-bottom: 2%;
+     margin-right: .5%;
+    }
+	#page-index #storySection #teamSide #teamCircles #bottomRow {
+      width: 40%;
+    }  
+	 #page-index #storySection #teamSide #teamCircles .teammate .teammateIcon {
+      display: block;
+      width: 14vw;
+      height: 14vw;
+/*       margin-bottom: 5%; */
+      margin: auto;
+      align-content: right; 
+     }
+	 #page-index #storySection #teamSide #teamCircles .teammate h4 {
+      font-size: 1.25vw;
+      text-align: center;
+      color: white;
+     }
+	 #page-index #storySection #teamSide #teamCircles .teammate h5 {
+      font-size: 1vw;
+      text-align: center;
+      color: white;
+      margin: 1%;
+     }
+
+#page-index #boxCustom {
+  margin-left: 5%;
+  margin-top: 5%; }
+  #page-index #boxCustom h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3.5vw;
+    color: #606060;
+
+    }
+  #page-index #boxCustom p {
+    text-align: center;
+    font-size: 1.8vw; 
+    margin-right: 5%; }
+
+#page-index #boxPurchase {
+  margin: 3%; }
+  #page-index #boxCustom #boxPurchase {
+   width: 25%;
+   font-size: 2vw;
+   text-align:center;
+  }
+  #page-index #boxCustom #boxPurchase #selectProduct option {
+   text-align:center;
+  }
+  #page-index #boxCustom .details {
+   margin-left: 3%;
+   margin-bottom: 8%;
+  }
+  
+  #page-index #boxCustom img {
+    height: 80%;
+    display: inline-block;
+    width: 30%}
+  #page-index #boxCustom div {
+    display: inline-block;
+    margin-left: 2.5%;
+    width: 65%;
+    text-align: left; }
+  #page-index #boxCustom .details div {
+/* 	margin-bottom: 5%; */
+  }
+  #page-index #boxCustom .details div h2 {
+   font-size: 2.8vw; 
+   text-align: left;
+   padding-left: 2%;
+/*    margin: 0;  */
+   color: #606060;
+  }
+  #page-index #boxCustom #boxDes{
+    font-size: 1.6vw;
+    width: 100%;
+    text-align: left; 
+  }
+ #page-index #boxCustom #boxDes p {
+  width: 100%; 
+  text-align: left; 
+ }
+  #page-index #boxCustom .details #boxDes #boxDesPrice{
+   margin: 0; 
+/*    margin-bottom: 1%; */
+/*    margin-left: 2%; */
+   text-align: left; 
+   font-weight: bold; 
+   font-size: 1.8vw;
+  }
+  #page-index #boxCustom #boxDes p {
+    font-size: 1.6vw;
+    margin: 0;
+    text-align: left; 
+  }
+  #page-index #boxCustom #boxDes p h9{
+   font-weight: bold; 
+   text-align: left; 
+   margin-bottom: 5%;
+   font-size: 1.6vw; 
+  }
+
+  #page-index #boxCustom div button {
+   background-color: #f67d0c;
+   font-style: bold;
+   border-radius: 5px;
+   border-style: none;
+   font-size: 1.8vw; 
+   padding: 1%;
+   padding-left: 2.5%;
+   padding-right: 2.5%;
+   margin-top: 1%; 
+   margin-left: 2%;
+   display: block;
+   color: white;
+  }
+
+/* Styles that affect only the product page. */
+#page-index .productPageDes{
+	max-width: 100%; 
+  	color: black; 
+	}
+
+#page-index .productPageDes .product-customizer-option {
+    margin-bottom: 10px;
+}
+
+#page-index .productPageDes .product-photo-thumbs {
+    margin: 0 30px;
+}
+#page-index .productPageDes .grid-item {
+    padding: 0 15px;
+}
+
+	#page-index .productPageDes .grid .grid-item .h2 {
+      font-size: 2.5vw;
+      padding-right: 1%;
+    }
+	#page-index .productPageDes .grid .grid-item .product-description{
+      font-size: 1.4vw;
+      padding-right: 1%;
+	}
+
+	#page-index .productPageDes .grid .grid-item .product-description h9 {
+      margin-bottom: 10px; 
+      display: block;
+    }
+
+	#page-index .productPageDes .grid .grid-item div form {
+      
+    }
+	#page-index .productPageDes .grid .grid-item div form a{
+      color: black;
+    }
+	#page-index .productPageDes .grid .grid-item #productPrice{
+     color: black;  
+    }
+	#page-index .productPageDes .grid .grid-item .h2{
+	 color: black; 
+    }
+
+
+/* Contact page stylings */
+
+#page-index .page-width{
+  margin-left:auto;
+  margin-right:auto;
+  width: 80%;
+  
+}
+#page-index .page-width .grid--half-gutters {
+  width:100%;
+  margin-left: .15%; 
+}
+#page-index .page-width .grid__item .section-header {
+ margin: 0; 
+}
+
+#page-index .page-width .grid__item .section-header h1{
+  color: black;
+  font-size: 3vw; 
+}
+#page-index .page-width .grid__item .rte .p1 {
+  color: black;
+  font-size: 2.25;
+  text-align: center;
+  padding-bottom: 2%; 
+}
+#page-index .page-width .grid__item .rte .p1 a {
+  color: red; 
+}
+#page-index .page-width .grid_item .contact-form form .grid .grid__item {
+  
+}
+#page-index .page-width .grid_item label {
+  font-size: 2.5vw;
+  color: black;
+  text-transform: uppercase;
+}
+#page-index .page-width .grid_item .contact-form form .grid #ContactFormEmail {
+  font-size: 2.5vw;
+  color: black;
+  width: 100%;
+  height: 3vh;
+  overflow: auto;
+}
+
+#page-index .page-width .grid button {
+  width: 25%; 
+  padding: 1%;
+  font-size: 1.5vw;
+  margin: 2%;
+  margin-left: 35%;
+  margin-right: 35%; 
+  background-color: #f67d0c;
+  color: white; 
+}
+
+#page-index .section-header{
+  height: 100%;
+}
+
+/* Cart Page   */
+
+/* #page-index .cart-wrapper {
+  margin-top: 5%;
+} */
+
+#page-index .cart-wrapper h1 {
+/*   margin-top: 6%; */
+  color: #606060;
+  font-size: 4vw;
+}
+
+#page-index .cart-wrapper .cart-wrapper__header-labels .grid--full .grid--full .text-right{
+ padding-right: 10%; 
+}
+#page-index .cart-wrapper .cart-row {
+  height: 15%;
+  font-size: 2vw; 
+}
+
+#page-index .cart-wrapper .cart-row .grid--full .grid-item .grid .two-thirds {
+ padding-left: 5%;  
+}
+
+#page-index .cart-wrapper .cart-row .cart-row--table-large {
+  padding-left: 5%;
+  padding-right: 5%;
+  
+}
+
+#page-index .cart-wrapper .cart-row .grid {
+ padding-left: 5%; 
+ padding-right: 5%;
+}
+#page-index .cart-wrapper .cart-row .grid .grid-item .update-cart {
+ color: white; 
+}
+#page-index .cart-wrapper .cart-row .grid .grid-item input {
+ color: white; 
+ font-size: 2vw; 
+}
